@@ -2,6 +2,12 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.navbar-brand > img {
-    width: 100px;
+.navbar-brand {
+    width: 70px;
+}
+
+#logout {
+    position: absolute; 
+    right: 10px; 
+    top: 30px
 }

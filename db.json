@@ -1,0 +1,38 @@
+{
+    "messages": [
+        {
+            "id": 1,
+            "subject": "Welcome",
+            "details": "Welcome to the Community Manager application",
+            "comments": [],
+            "createDate": "11/21/2018",
+            "priority": "info",
+            "userId": 1    
+        },
+        {
+            "id": 2,
+            "subject": "Message 2",
+            "details": "This is message 2 by userId 1",
+            "comments": [],
+            "createDate": "11/22/2018",
+            "priority": "info",
+            "userId": 1    
+        },
+        {
+            "id": 3,
+            "subject": "Parking",
+            "details": "I ask everyone to leave the handicap parking spot free for handicaps",
+            "comments": [],
+            "createDate": "12/04/2018",
+            "priority": "info",
+            "userId": 2    
+        }
+    ]
+
+    
+
+
+
+
+
+}
