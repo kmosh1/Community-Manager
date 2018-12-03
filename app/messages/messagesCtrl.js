@@ -12,4 +12,10 @@ CmuntyMngr.controller("messagesCtrl", function($scope, messages, $location) {
     }, function(error) {
         
     })
+
+    messages.getComments().then(function (comments) {
+        $scope.comments = comments;
+    }, function(error) {
+        
+    })
 })

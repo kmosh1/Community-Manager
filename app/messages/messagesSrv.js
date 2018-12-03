@@ -76,7 +76,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
             async.resolve(comments);
         } else {
             comments = [];
-            var getCommentsURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/messages";
+            var getCommentsURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/comments";
             
             $http.get(getCommentsURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -103,7 +103,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
             createDate: new Date(month, day, year, hours, minutes), userId: userId, messageId: messageId});
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....
+        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
 
         comments.push(newComment);
         async.resolve(newComment);

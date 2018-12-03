@@ -1,15 +1,18 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 <div class="container mt-5">
     <h1>Messages</h1>
+    <ul id="messages">
 
-    <div class="row">
-        <div class="col-sm-6 col-md-4 my-2" ng-repeat="message in messages">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">{{message.title}}</h4>
-                    <p class="card-text">{{message.details}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        <li ng-repeat="message in messages">
+            <h4 class="card-title">{{message.title}}</h4>
+            <p class="card-text">{{message.details}}</p>
+
+            <ul id="comments">
+                <li ng-repeat="comment in comments">
+                    <h4 class="card-title">{{comment.title}}</h4>
+                    <p class="card-text">{{comment.details}}</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
 </div>
