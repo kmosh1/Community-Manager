@@ -11,9 +11,8 @@ CmuntyMngr.config(function($routeProvider) {
         templateUrl: "app/messages/messages.html",
         controller: "messagesCtrl"
       })
-      .when("/signup",{
-        templateUrl: "app/login/signup.html",
-        controller: "signupCtrl"
+      .when("/dashboard",{
+        templateUrl: "app/dashboard/dashboard.html"
       })
        .when("/manager/:mngrId",{
       templateUrl: "app/managers/manager.html",

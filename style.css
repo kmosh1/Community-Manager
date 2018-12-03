@@ -6,8 +6,12 @@
     width: 70px;
 }
 
+.nav-item {
+    font-family: 'Fredericka the Great', cursive;
+    }
+
 #logout {
     position: absolute; 
     right: 10px; 
-    top: 30px
+    top: 29px;
 }
