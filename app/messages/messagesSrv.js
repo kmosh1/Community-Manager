@@ -56,7 +56,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
         //var userId = loginSrv.getCurrentUser().id;
 
         var newMessage = new Message({id:-1, subject: subject, details: details,
-            createDate: new Date(month, day, year, hours, minutes), userId: userId});
+            createDate: new Date().toLocaleString(), priority: priority, userId: 1});
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....
@@ -100,7 +100,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
         //var userId = loginSrv.getCurrentUser().id;
 
         var newComment = new Comment({id:-1, subject: subject, details: details,
-            createDate: new Date(month, day, year, hours, minutes), userId: userId, messageId: messageId});
+            createDate: new Date().toLocaleString(), userId: 2, messageId: messageId});
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....

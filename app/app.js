@@ -8,8 +8,7 @@ CmuntyMngr.config(function($routeProvider) {
       templateUrl: "app/home/home.html"
     })
     .when("/messages",{
-        templateUrl: "app/messages/messages.html",
-        controller: "messagesCtrl"
+        templateUrl: "app/messages/messages.html"
       })
       .when("/dashboard",{
         templateUrl: "app/dashboard/dashboard.html"

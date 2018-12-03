@@ -5,7 +5,7 @@
             "subject": "Welcome",
             "details": "Welcome to the Community Manager application",
             "createDate": "11/21/2018 10:00",
-            "priority": "info",
+            "priority": false,
             "userId": 1
         },
         {
@@ -13,7 +13,7 @@
             "subject": "Message 2",
             "details": "This is message 2 by userId 1",
             "createDate": "11/22/2018: 15:21",
-            "priority": "info",
+            "priority": false,
             "userId": 1
         },
         {
@@ -21,7 +21,7 @@
             "subject": "Parking",
             "details": "I ask everyone to leave the handicap parking spot free for handicaps",
             "createDate": "12/04/2018 12:45",
-            "priority": "info",
+            "priority": true,
             "userId": 2
         }
     ],

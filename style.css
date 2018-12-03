@@ -6,8 +6,9 @@
     width: 70px;
 }
 
-.nav-item {
-    font-family: 'Fredericka the Great', cursive;
+.navbar {
+    /* font-family: 'Fredericka the Great', cursive; */
+    font-family: 'Rye', cursive;
     }
 
 #logout {

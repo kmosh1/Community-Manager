@@ -8,7 +8,7 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location) {
     // }
 
     $scope.states = {};
-    
+
     $scope.openDetails = function () {
         $scope.details = true;
     }
@@ -25,4 +25,9 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location) {
     }, function (error) {
 
     })
+
+    $scope.addMessage = function (subject, details, priority) {
+        messages.createMessage(subject, details, priority);
+    }
+
 })
