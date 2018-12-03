@@ -1,18 +1,23 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 <div class="container mt-5">
     <h1>Messages</h1>
-    <ul id="messages">
+    <table class="table table-bordered" ng-repeat="message in messages">
+            <tr>
+                <td ng-click="states.activeItem=message.id">{{message.subject}}</td>
+            </tr>
+            <tr>
+                <td ng-show="states.activeItem == message.id" id="details">
+                        <h5>{{message.details}}</h5>
+                    <ul id="comments">
+                        
+                        <li class="border" ng-repeat="comment in comments" ng-show="{{comment.messageId}} == {{message.id}}">
+                            <h6>{{comment.subject}}</h6>
+                            <p>{{comment.details}}</p>
+                        </li>
+                    </ul>
 
-        <li ng-repeat="message in messages">
-            <h4 class="card-title">{{message.title}}</h4>
-            <p class="card-text">{{message.details}}</p>
+                </td>
+            </tr>
 
-            <ul id="comments">
-                <li ng-repeat="comment in comments">
-                    <h4 class="card-title">{{comment.title}}</h4>
-                    <p class="card-text">{{comment.details}}</p>
-                </li>
-            </ul>
-        </li>
-    </ul>
+    </table>
 </div>

@@ -41,6 +41,14 @@
             "createDate": "12/04/2018 15:30",
             "userId": 2,
             "messageId": 3
+        },
+        {
+            "id": 3,
+            "subject": "comment 3",
+            "details": "This is comment 3 by userId 1 on message 3",
+            "createDate": "12/04/2018 16:30",
+            "userId": 1,
+            "messageId": 3
         }
     ]
 }
