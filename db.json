@@ -4,35 +4,43 @@
             "id": 1,
             "subject": "Welcome",
             "details": "Welcome to the Community Manager application",
-            "comments": [],
-            "createDate": "11/21/2018",
+            "createDate": "11/21/2018 10:00",
             "priority": "info",
-            "userId": 1    
+            "userId": 1
         },
         {
             "id": 2,
             "subject": "Message 2",
             "details": "This is message 2 by userId 1",
-            "comments": [],
-            "createDate": "11/22/2018",
+            "createDate": "11/22/2018: 15:21",
             "priority": "info",
-            "userId": 1    
+            "userId": 1
         },
         {
             "id": 3,
             "subject": "Parking",
             "details": "I ask everyone to leave the handicap parking spot free for handicaps",
-            "comments": [],
-            "createDate": "12/04/2018",
+            "createDate": "12/04/2018 12:45",
             "priority": "info",
-            "userId": 2    
+            "userId": 2
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "subject": "Thank you",
+            "details": "Thank you for the warm welcome",
+            "createDate": "11/21/2018: 18:20",
+            "userId": 2,
+            "messageId": 1
+        },
+        {
+            "id": 2,
+            "subject": "comment 2",
+            "details": "This is comment 2 by userId 2 on message 3",
+            "createDate": "12/04/2018 15:30",
+            "userId": 2,
+            "messageId": 3
         }
     ]
-
-    
-
-
-
-
-
 }
