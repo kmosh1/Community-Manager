@@ -9,7 +9,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
         this.id = plainMessage.id;
         this.subject = plainMessage.subject;
         this.details = plainMessage.details;
-        this.createDate = plainMessage.createDate;
+        this.createDate = new Date(plainMessage.createDate).toLocaleString();
         this.priority = plainMessage.priority;
         this.userId = plainMessage.userId;
     }
@@ -18,7 +18,7 @@ CmuntyMngr.factory("messages", function ($q, $http) {
         this.id = plainComment.id;
         this.subject = plainComment.subject;
         this.details = plainComment.details;
-        this.createDate = plainComment.createDate;
+        this.createDate = new Date(plainComment.createDate).toLocaleString();
         this.userId = plainComment.userId;
         this.messageId = plainComment.messageId;
     }

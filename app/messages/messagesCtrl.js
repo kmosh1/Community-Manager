@@ -8,12 +8,7 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location) {
     // }
 
     $scope.states = {};
-
-    $scope.openDetails = function () {
-        $scope.details = true;
-    }
-
-
+ 
     messages.getMessages().then(function (messages) {
         $scope.messages = messages;
     }, function (error) {

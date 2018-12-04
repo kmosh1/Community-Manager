@@ -12,7 +12,7 @@
             "id": 2,
             "subject": "Message 2",
             "details": "This is message 2 by userId 1",
-            "createDate": "11/22/2018: 15:21",
+            "createDate": "11/22/2018 15:21",
             "priority": false,
             "userId": 1
         },
@@ -30,7 +30,7 @@
             "id": 1,
             "subject": "Thank you",
             "details": "Thank you for the warm welcome",
-            "createDate": "11/21/2018: 18:20",
+            "createDate": "11/21/2018 18:20",
             "userId": 2,
             "messageId": 1
         },
