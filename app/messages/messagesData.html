@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="message in messages" >
+    <table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="message in messages | filter: filterMessages" >
             <col width="15%">
             <col width="65%">
             <col width="20%">

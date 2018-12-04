@@ -28,4 +28,11 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location, use
        var tmpUser = user.getUser(userId);
        return tmpUser.fname + " " + tmpUser.lname;
     }
+
+    $scope.filterMessages = function (message) {
+        var currentUser = user.getActiveUser();
+        var tmpUser = user.getUser(message.userId);
+       return currentUser.adress == tmpUser.adress ? true : false;
+    }
+
 })
