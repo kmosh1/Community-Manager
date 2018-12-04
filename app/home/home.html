@@ -74,29 +74,29 @@
                     <div class="modal-body seminor-login-modal-body">
                         <h5 class="modal-title text-center">LOGIN TO MY ACCOUNT</h5>
                         <button type="button" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                            <span><i class="fa fa-times-circle"></i></span>
                         </button>
 
 
                         <form class="seminor-login-form">
                             <div class="form-group">
-                                <input type="email" class="form-control" required autocomplete="off">
-                                <label class="form-control-placeholder" for="name">Email address</label>
+                                <input type="email" class="form-control" required autocomplete="off" ng-model="email">
+                                <label class="form-control-placeholder" for="email">Email address</label>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" required autocomplete="off">
+                                <input type="password" class="form-control" required autocomplete="off" ng-model="pwd">
                                 <label class="form-control-placeholder" for="password">Password</label>
                             </div>
                             <div class="form-group">
                                 <label class="container-checkbox">
                                     Remember Me On This Computer
-                                    <input type="checkbox" checked="checked" required>
+                                    <input type="checkbox" checked="checked">
                                     <span class="checkmark-box"></span>
                                 </label>
                             </div>
 
                             <div class="btn-check-log">
-                                <button type="submit" class="btn-check-login">LOGIN</button>
+                                <button type="button" class="btn-check-login" ng-click="login()">LOGIN</button>
                             </div>
 
 
@@ -104,12 +104,6 @@
                                 <a href="/reset_pass" class="text-secondary">Forgot Your Password?</a>
 
                             </div>
-                            <div class="create-new-fau text-center pt-3">
-                                <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-reg"
-                                        data-dismiss="modal">Create A New Account</span></a>
-                            </div>
-
-
 
                         </form>
 

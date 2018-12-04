@@ -50,5 +50,45 @@
             "userId": 1,
             "messageId": 3
         }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "fname": "Moshe",
+            "lname": "Korber",
+            "email": "mk@mk.com",
+            "pwd": "1234",
+            "isCommittee": true,
+            "adress": "holon 6"
+        },
+        {
+            "id": 2,
+            "fname": "amir",
+            "lname": "amir",
+            "email": "amir@amir.com",
+            "pwd": "1234",
+            "isCommittee": false,
+            "adress": "holon 6"
+        },
+        {
+            "id": 3,
+            "fname": "david",
+            "lname": "david",
+            "email": "david@david.com",
+            "pwd": "1234",
+            "isCommittee": true,
+            "adress": "tel-aviv 8"
+        },
+        {
+            "id": 4,
+            "fname": "tali",
+            "lname": "tali",
+            "email": "tali@tali.com",
+            "pwd": "1234",
+            "isCommittee": false,
+            "adress": "tel-aviv 8"
+        } 
     ]
 }
+
+
