@@ -1,5 +1,4 @@
-
-<navbar-cmunty-mngr></navbar-cmunty-mngr>
+<!-- <navbar-cmunty-mngr></navbar-cmunty-mngr> -->
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-3 logo">Community Manager <img src="/images/CommunityManager.png"></h1>
@@ -11,41 +10,46 @@
         <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#sem-login">Sign In </a>
         <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#sem-reg">Register </a>
         <!-- The Modal -->
-        <div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-reg">
+        <div class="modal fade " data-backdrop="static" id="sem-reg">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
                     <!-- Modal body -->
-                    <div class="modal-body seminor-login-modal-body">
-                        <h5 class="modal-title text-center">CREATE AN ACCOUNT</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-                        </button>
+                    <div class="modal-body">
+                        <h5 class="modal-title text-center">CREATE AN ACCOUNT
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                            </button>
+                        </h5>
+                        <br>
 
-
-                        <form class="seminor-login-form">
+                        <form>
                             <div class="form-group">
-                                <input type="name" class="form-control" required autocomplete="off">
-                                <label class="form-control-placeholder" for="name">User Name</label>
+                                <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
+                                <label class="form-control-placeholder" for="fname">First Name</label>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" required autocomplete="off">
-                                <label class="form-control-placeholder" for="name">Email address</label>
+                                <input type="name" class="form-control" required autocomplete="off" ng-model="lname">
+                                <label class="form-control-placeholder" for="lname">Last Name</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required autocomplete="off">
-                                <label class="form-control-placeholder" for="name">Full Community Adress</label>
+                                <input type="email" class="form-control" required autocomplete="off" ng-model="email">
+                                <label class="form-control-placeholder" for="email">Email address</label>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" required autocomplete="off">
+                                <input type="text" class="form-control" required autocomplete="off" ng-model="addr">
+                                <label class="form-control-placeholder" for="addr">Full Community Adress</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" required autocomplete="off" ng-model="pwd1">
                                 <label class="form-control-placeholder" for="password">Password</label>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" required autocomplete="off">
+                                <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                                 <label class="form-control-placeholder" for="password">Confirm Password</label>
                             </div>
 
-                            <div class="form-group forgot-pass-fau text-center ">
+                            <div class="form-group text-center ">
                                 <a href="/terms-conditions/" class="text-secondary">
                                     By Clicking "SIGN UP" you accept our<br>
                                     <span class="text-primary-fau">Terms and Conditions</span>
@@ -55,7 +59,7 @@
                             <div class="btn-check-log">
                                 <button type="submit" class="btn-check-login">SIGN UP</button>
                             </div>
-                            <div class="create-new-fau text-center pt-3">
+                            <div class="text-center pt-3">
                                 <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-login"
                                         data-dismiss="modal">Already Have An Account</span></a>
                             </div>
@@ -66,19 +70,20 @@
             </div>
         </div>
         <!-- The Modal -->
-        <div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-login">
+        <div class="modal fade" data-backdrop="static" id="sem-login">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
                     <!-- Modal body -->
-                    <div class="modal-body seminor-login-modal-body">
-                        <h5 class="modal-title text-center">LOGIN TO MY ACCOUNT</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle"></i></span>
-                        </button>
+                    <div class="modal-body">
+                        <h5 class="modal-title text-center">LOGIN TO COMMUNITY MANAGER
+                            <button type="button" id="close" class="close" data-dismiss="modal">
+                                <span><i class="fa fa-times-circle"></i></span>
+                            </button>
+                        </h5>
+                        <br>
 
-
-                        <form class="seminor-login-form">
+                        <form id="loginForm">
                             <div class="form-group">
                                 <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                                 <label class="form-control-placeholder" for="email">Email address</label>
@@ -97,10 +102,12 @@
 
                             <div class="btn-check-log">
                                 <button type="button" class="btn-check-login" ng-click="login()">LOGIN</button>
+                                <!-- <button type="reset" class="btn-check-login" ng-click="login()">LOGIN</button> -->
+
                             </div>
 
 
-                            <div class="forgot-pass-fau text-center pt-3">
+                            <div class="text-center pt-3">
                                 <a href="/reset_pass" class="text-secondary">Forgot Your Password?</a>
 
                             </div>

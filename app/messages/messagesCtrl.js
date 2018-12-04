@@ -1,4 +1,4 @@
-CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location) {
+CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location, user) {
 
     // Checking if the user is currently logged in,
     // if not redirecting to the home page
@@ -20,8 +20,12 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location) {
 
     })
 
-    $scope.addMessage = function (subject, details, priority) {
+     $scope.addMessage = function (subject, details, priority) {
         messages.createMessage(subject, details, priority);
     }
 
+    $scope.getUserName = function(userId) {
+       var tmpUser = user.getUser(userId);
+       return tmpUser.fname + " " + tmpUser.lname;
+    }
 })

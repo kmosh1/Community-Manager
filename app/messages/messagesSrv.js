@@ -1,4 +1,4 @@
-CmuntyMngr.factory("messages", function ($q, $http) {
+CmuntyMngr.factory("messages", function ($q, $http, user) {
 
     var messages = [];
     var comments = [];
@@ -53,10 +53,10 @@ CmuntyMngr.factory("messages", function ($q, $http) {
     function createMessage(subject, details, priority) {
         var async = $q.defer();
 
-        //var userId = loginSrv.getCurrentUser().id;
+        var userId = user.getActiveUser().id;
 
         var newMessage = new Message({id:-1, subject: subject, details: details,
-            createDate: new Date().toLocaleString(), priority: priority, userId: 1});
+            createDate: new Date().toLocaleString(), priority: priority, userId: userId});
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....

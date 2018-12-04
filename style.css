@@ -17,6 +17,15 @@
     top: 29px;
 }
 
+.username {
+    color: red;
+}
+
+.posted {
+    font-size:10px;
+}
+
+
 .row.dashboard {
     height: 500px;
     max-height: 500px;

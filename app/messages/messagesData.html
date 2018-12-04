@@ -4,7 +4,7 @@
             <col width="65%">
             <col width="20%">
         <tr ng-click="toggle=!toggle">
-            <td >{{message.createDate}}</td>
+            <td class="posted"> posted by: <br> {{getUserName(message.userId)}} <br> on: {{message.createDate}} </td>
             <td ><h2></h2>Subject: {{message.subject}}</h2></td>
             <td >({{filtered.length}} comment/s) </td>
         </tr>
@@ -17,7 +17,7 @@
                     <col width="10%">
                     <col width="80%">
                     <tr ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
-                        <td>{{comment.createDate}}</td>
+                        <td class="posted">posted by: <br> {{getUserName(comment.userId)}} <br> on: {{comment.createDate}}</td>
                         <td>{{comment.subject}}</td>
                         <td>{{comment.details}}</td>
                     </tr>
