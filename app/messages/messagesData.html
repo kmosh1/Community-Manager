@@ -1,22 +1,27 @@
 <div class="container mt-5">
-    <table class="table table-bordered" ng-repeat="message in messages">
-        <tr>
-            <td ng-click="states.activeItem=message.id">Subject: {{message.subject}}
-                <span class="float-right">({{filtered.length}} comment/s) {{message.createDate}}</span>
-            </td>
+    <table class="table table-bordered table-dark m-0 p-0" ng-repeat="message in messages">
+            <col width="15%">
+            <col width="70%">
+            <col width="15%">
+        <tr ng-click="states.activeItem=message.id" ng-toggle="show=!show">
+            <td >{{message.createDate}}</td>
+            <td ><h2></h2>Subject: {{message.subject}}</h2></td>
+            <td >({{filtered.length}} comment/s) {{show ? 'Hiden' : 'Shown'}} </td>
         </tr>
-        <tr>
-            <td ng-show="states.activeItem == message.id" id="details">
-                <h5>{{message.details}}</h5>
-                <table class="table table-bordered">
-                        <col width="10%">
-                        <col width="10%">
-                        <col width="80%">
+        <tr >
+            <td class="bg-info"colspan="3" ng-show="states.activeItem == message.id" ng-toggle-show id="details">
+                <h5>Details: {{message.details}}</h5>
+                <h6>Comments:</h6>
+                <table class="table table-bordered table-striped bg-warning">
+                    <col width="10%">
+                    <col width="10%">
+                    <col width="80%">
                     <tr ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
                         <td>{{comment.createDate}}</td>
                         <td>{{comment.subject}}</td>
                         <td>{{comment.details}}</td>
                     </tr>
+                </table>
             </td>
         </tr>
     </table>
