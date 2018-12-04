@@ -1,15 +1,15 @@
 <div class="container mt-5">
-    <table class="table table-bordered table-dark m-0 p-0" ng-repeat="message in messages">
+    <table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="message in messages" >
             <col width="15%">
-            <col width="70%">
-            <col width="15%">
-        <tr ng-click="states.activeItem=message.id" ng-toggle="show=!show">
+            <col width="65%">
+            <col width="20%">
+        <tr ng-click="toggle=!toggle">
             <td >{{message.createDate}}</td>
             <td ><h2></h2>Subject: {{message.subject}}</h2></td>
-            <td >({{filtered.length}} comment/s) {{show ? 'Hiden' : 'Shown'}} </td>
+            <td >({{filtered.length}} comment/s) </td>
         </tr>
         <tr >
-            <td class="bg-info"colspan="3" ng-show="states.activeItem == message.id" ng-toggle-show id="details">
+            <td class="bg-info" colspan="3" ng-show="toggle">
                 <h5>Details: {{message.details}}</h5>
                 <h6>Comments:</h6>
                 <table class="table table-bordered table-striped bg-warning">

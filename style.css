@@ -16,3 +16,15 @@
     right: 10px; 
     top: 29px;
 }
+
+.row.dashboard {
+    height: 500px;
+    max-height: 500px;
+    background-color: aquamarine;
+}
+
+.box {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
