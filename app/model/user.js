@@ -1,4 +1,4 @@
-CmuntyMngr.factory("user", function ($q, $http) {
+CmuntyMngr.factory("userSrv", function ($q, $http) {
 
     var users = [];
     var userLoaded = false;
@@ -17,7 +17,8 @@ CmuntyMngr.factory("user", function ($q, $http) {
         this.email = plainUser.email;
         this.pwd = plainUser.pwd;
         this.isCommittee = plainUser.isCommittee;
-        this.adress = plainUser.adress
+        this.address = plainUser.address;
+        this.appartment = plainUser.appartment;
     }
 
     function login(email, pwd) {

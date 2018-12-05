@@ -1,4 +1,4 @@
-CmuntyMngr.factory("messages", function ($q, $http, user) {
+CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
 
     var messages = [];
     var comments = [];
@@ -16,7 +16,6 @@ CmuntyMngr.factory("messages", function ($q, $http, user) {
 
     function Comment(plainComment) {
         this.id = plainComment.id;
-        this.subject = plainComment.subject;
         this.details = plainComment.details;
         this.createDate = new Date(plainComment.createDate).toLocaleString();
         this.userId = plainComment.userId;
@@ -53,7 +52,7 @@ CmuntyMngr.factory("messages", function ($q, $http, user) {
     function createMessage(subject, details, priority) {
         var async = $q.defer();
 
-        var userId = user.getActiveUser().id;
+        var userId = userSrv.getActiveUser().id;
 
         var newMessage = new Message({id:-1, subject: subject, details: details,
             createDate: new Date().toLocaleString(), priority: priority, userId: userId});
@@ -94,13 +93,13 @@ CmuntyMngr.factory("messages", function ($q, $http, user) {
     }
 
 
-    function addComment(subject, details,messageId) {
+    function addComment(details,messageId) {
         var async = $q.defer();
 
-        //var userId = loginSrv.getCurrentUser().id;
+        var userId = userSrv.getActiveUser().id;
 
-        var newComment = new Comment({id:-1, subject: subject, details: details,
-            createDate: new Date().toLocaleString(), userId: 2, messageId: messageId});
+        var newComment = new Comment({id:-1, details: details,
+            createDate: new Date().toLocaleString(), userId: userId, messageId: messageId});
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....

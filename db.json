@@ -36,7 +36,6 @@
     "comments": [
         {
             "id": 1,
-            "subject": "Thank you",
             "details": "Thank you for the warm welcome",
             "createDate": "11/21/2018 18:20",
             "userId": 2,
@@ -44,7 +43,6 @@
         },
         {
             "id": 2,
-            "subject": "comment 2",
             "details": "This is comment 2 by userId 2 on message 3",
             "createDate": "12/04/2018 15:30",
             "userId": 2,
@@ -52,7 +50,6 @@
         },
         {
             "id": 3,
-            "subject": "comment 3",
             "details": "This is comment 3 by userId 1 on message 3",
             "createDate": "12/04/2018 16:30",
             "userId": 1,
@@ -60,7 +57,6 @@
         },
         {
             "id": 4,
-            "subject": "comment to Tali",
             "details": "Welcome onboard",
             "createDate": "11/04/2018 16:30",
             "userId": 3,
@@ -75,7 +71,8 @@
             "email": "mk@mk.com",
             "pwd": "1234",
             "isCommittee": true,
-            "adress": "holon 6"
+            "address": "holon 6",
+            "appartment": "1a"
         },
         {
             "id": 2,
@@ -84,7 +81,8 @@
             "email": "amir@amir.com",
             "pwd": "1234",
             "isCommittee": false,
-            "adress": "holon 6"
+            "adress": "holon 6",
+            "appartment": "2b"
         },
         {
             "id": 3,
@@ -93,7 +91,8 @@
             "email": "david@david.com",
             "pwd": "1234",
             "isCommittee": true,
-            "adress": "tel-aviv 8"
+            "adress": "tel-aviv 8",
+            "appartment": "1a"
         },
         {
             "id": 4,
@@ -102,7 +101,8 @@
             "email": "tali@tali.com",
             "pwd": "1234",
             "isCommittee": false,
-            "adress": "tel-aviv 8"
+            "adress": "tel-aviv 8",
+            "appartment": "3d"
         } 
     ]
 }

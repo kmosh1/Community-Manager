@@ -13,15 +13,16 @@
                 <h5>Details: {{message.details}}</h5>
                 <h6>Comments:</h6>
                 <table class="table table-bordered table-striped bg-warning">
-                    <col width="10%">
-                    <col width="10%">
+                    <col width="20%">
                     <col width="80%">
                     <tr ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
                         <td class="posted">posted by: <br> {{getUserName(comment.userId)}} <br> on: {{comment.createDate}}</td>
-                        <td>{{comment.subject}}</td>
                         <td>{{comment.details}}</td>
                     </tr>
                 </table>
+                            <button type="button" class="btn btn-info" ng-click="addComment(newComment,message.id)">Add comment</button>
+                            <textarea class="form-control float-right" rows="2" name="comment" id="comment" placeholder="write a comment..." ng-model="newComment"></textarea>
+ 
             </td>
         </tr>
     </table>

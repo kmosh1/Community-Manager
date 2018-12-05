@@ -9,11 +9,12 @@
         </p>
         <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#sem-login">Sign In </a>
         <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#sem-reg">Register </a>
-        <!-- The Modal -->
+
+
+        <!-- The Register Modal -->
         <div class="modal fade " data-backdrop="static" id="sem-reg">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
                     <!-- Modal body -->
                     <div class="modal-body">
                         <h5 class="modal-title text-center">CREATE AN ACCOUNT
@@ -22,7 +23,6 @@
                             </button>
                         </h5>
                         <br>
-
                         <form>
                             <div class="form-group">
                                 <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
@@ -33,12 +33,16 @@
                                 <label class="form-control-placeholder" for="lname">Last Name</label>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" required autocomplete="off" ng-model="email">
-                                <label class="form-control-placeholder" for="email">Email address</label>
+                                <input type="text" class="form-control" required autocomplete="off" ng-model="adress">
+                                <label class="form-control-placeholder" for="addr">Full Community Adress</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required autocomplete="off" ng-model="addr">
-                                <label class="form-control-placeholder" for="addr">Full Community Adress</label>
+                                <input type="text" class="form-control" required autocomplete="off" ng-model="aprtmnt">
+                                <label class="form-control-placeholder" for="addr">Appartment</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" required autocomplete="off" ng-model="email">
+                                <label class="form-control-placeholder" for="email">Email address</label>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" required autocomplete="off" ng-model="pwd1">
@@ -48,32 +52,29 @@
                                 <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                                 <label class="form-control-placeholder" for="password">Confirm Password</label>
                             </div>
-
                             <div class="form-group text-center ">
                                 <a href="/terms-conditions/" class="text-secondary">
                                     By Clicking "SIGN UP" you accept our<br>
                                     <span class="text-primary-fau">Terms and Conditions</span>
                                 </a>
                             </div>
-
                             <div class="btn-check-log">
-                                <button type="submit" class="btn-check-login">SIGN UP</button>
+                                <button type="button" class="btn-check-login" ng-click="register()">REGISTER</button>
                             </div>
                             <div class="text-center pt-3">
                                 <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-login"
                                         data-dismiss="modal">Already Have An Account</span></a>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
-        <!-- The Modal -->
+
+        <!-- The Login Modal -->
         <div class="modal fade" data-backdrop="static" id="sem-login">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-
                     <!-- Modal body -->
                     <div class="modal-body">
                         <h5 class="modal-title text-center">LOGIN TO COMMUNITY MANAGER
@@ -82,7 +83,6 @@
                             </button>
                         </h5>
                         <br>
-
                         <form id="loginForm">
                             <div class="form-group">
                                 <input type="email" class="form-control" required autocomplete="off" ng-model="email">
@@ -99,21 +99,13 @@
                                     <span class="checkmark-box"></span>
                                 </label>
                             </div>
-
                             <div class="btn-check-log">
                                 <button type="button" class="btn-check-login" ng-click="login()">LOGIN</button>
-                                <!-- <button type="reset" class="btn-check-login" ng-click="login()">LOGIN</button> -->
-
                             </div>
-
-
                             <div class="text-center pt-3">
                                 <a href="/reset_pass" class="text-secondary">Forgot Your Password?</a>
-
                             </div>
-
                         </form>
-
                     </div>
                 </div>
             </div>
