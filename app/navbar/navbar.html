@@ -1,34 +1,29 @@
 <nav class="navbar navbar-expand-md bg-warning navbar-warning">
     <!-- Brand -->
     <img class="navbar-brand" src="/images/CommunityManager.png">
-
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler mx-auto border" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <!-- Navbar links -->
     <a class="btn" id="logout" href="#"><span class="username">{{userName}}</span><br> (Logout)</a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="btn" href="#!/dashboard"><i class="fa fa-dashboard"></i> dashboard</a>
+                <a class="btn p-1 border-right" href="#!/dashboard"><i class="fa fa-dashboard"></i> dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="#!/messages"><i class="fa fa-envelope-o"></i> messages</a>
+                <a class="btn p-1 border-right" href="#!/messages"><i class="fa fa-envelope-o"></i> messages</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="#"> up-for-vote</a>
+                <a class="btn p-1 border-right" href="#"> up-for-vote</a>
             </li>
             <li class="nav-item">
-                <a class="btn" href="#">issue tracking</a>
+                <a class="btn p-1 border-right" href="#">issue tracking</a>
             </li>
             <li class="nav-item" ng-show="isUserCommittee">
-                <a class="btn" href="#!/tenants"><i class="fa fa-vcard-o"></i> tenants</a>
+                <a class="btn p-1" href="#!/tenants"><i class="fa fa-vcard-o"></i> tenants</a>
             </li>
         </ul>
     </div>
-    
-
-
 </nav>

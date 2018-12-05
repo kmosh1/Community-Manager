@@ -81,7 +81,7 @@
             "email": "amir@amir.com",
             "pwd": "1234",
             "isCommittee": false,
-            "adress": "holon 6",
+            "address": "holon 6",
             "appartment": "2b"
         },
         {
@@ -91,7 +91,7 @@
             "email": "david@david.com",
             "pwd": "1234",
             "isCommittee": true,
-            "adress": "tel-aviv 8",
+            "address": "tel-aviv 8",
             "appartment": "1a"
         },
         {
@@ -101,7 +101,7 @@
             "email": "tali@tali.com",
             "pwd": "1234",
             "isCommittee": false,
-            "adress": "tel-aviv 8",
+            "address": "tel-aviv 8",
             "appartment": "3d"
         } 
     ]
