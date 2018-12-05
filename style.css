@@ -3,7 +3,7 @@
 }
 
 .navbar-brand {
-    width: 70px;
+    width: 40px;
 }
 
 .navbar {
@@ -11,10 +11,14 @@
     font-family: 'Rye', cursive;
     }
 
+/* .navbar-toggler-icon {
+    background-image: 
+} */
+
 #logout {
     position: absolute; 
     right: 10px; 
-    top: 19px;
+    top: 0px;
 }
 
 .username {
