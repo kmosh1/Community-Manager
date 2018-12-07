@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Address</h1>
+
+
+
+    <form class="search-box">
+        <input type="text" class="form-control" placeholder="בחר עיר" ng-model="cityText" ng-change="searchCity()" ng-click="toggle = false" ng-keydown="$event.keyCode === 13 && (toggle=!toggle)">
+        <div class="list-group search-results">
+            <botton class="list-group-item list-group-item-action" ng-repeat="citySrch in searchCities track by $index" ng-click="addCity(citySrch)">{{citySrch.main_text}}</botton>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-6 col-lg-3" ng-repeat="citySrch in cities track by $index">
+            <div class="row">
+                <h3>{{citySrch.main_text}} </h3>
+            </div>
+        </div>
+    </div>
+    <form class="search-box" ng-show="toggle">
+        <input type="text" class="form-control" placeholder="בחר רחוב" ng-model="searchText" ng-change="searchChange()">
+        <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
+        <div class="list-group search-results">
+            <botton class="list-group-item list-group-item-action" ng-repeat="addrSrch in searchResults" ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</botton>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-6 col-lg-3" ng-repeat="addrSrch in adresses track by $index">
+            <div class="row">
+                <h3>{{addrSrch.main_text}} </h3>
+            </div>
+        </div>
+    </div>
+</div>

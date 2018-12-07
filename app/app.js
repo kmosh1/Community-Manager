@@ -3,11 +3,13 @@ var CmuntyMngr = angular.module("CmuntyMngr", ['ngRoute']);
 CmuntyMngr.config(function ($routeProvider) {
   $routeProvider.when("/", {
     templateUrl: "app/home/home.html",
-    controller: "loginCtrl"
+    controller: "loginCtrl",
+    controller: "registerCtrl"
   })
     .when("/home", {
       templateUrl: "app/home/home.html",
-      controller: "loginCtrl"
+      controller: "loginCtrl",
+      controller: "registerCtrl"
     })
     .when("/messages", {
       templateUrl: "app/messages/messages.html"

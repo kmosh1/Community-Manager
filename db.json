@@ -71,7 +71,7 @@
             "email": "mk@mk.com",
             "pwd": "1234",
             "isCommittee": true,
-            "address": "holon 6",
+            "address": "דבורה הנביאה 17 ,קרית טבעון",
             "appartment": "1a"
         },
         {
@@ -81,7 +81,7 @@
             "email": "amir@amir.com",
             "pwd": "1234",
             "isCommittee": false,
-            "address": "holon 6",
+            "address": "דבורה הנביאה 17 ,קרית טבעון",
             "appartment": "2b"
         },
         {
