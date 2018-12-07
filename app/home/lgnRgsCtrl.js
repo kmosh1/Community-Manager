@@ -1,4 +1,4 @@
-CmuntyMngr.controller("loginCtrl", function ($scope, $location, userSrv) {
+CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
 
     $scope.email = "mk@mk.com";
     $scope.pwd = "1234";
@@ -21,11 +21,14 @@ CmuntyMngr.controller("loginCtrl", function ($scope, $location, userSrv) {
             $scope.invalidLogin = true;
         })
     }
-
+    $scope.fullAddress = $scope.cityText + " ," + $scope.buildingNum + " " + $scope.searchText;
     $scope.register = function () {
         $scope.invalidLogin = false;
+        var fullAddress = $scope.searchText + " " + $scope.buildingNum + " ," + $scope.cityText ;
+        console.log(fullAddress);
+        
         for (var i in $scope.users) {
-            if ($scope.address === $scope.users[i].address) {
+            if (fullAddress === $scope.users[i].address) {
                 alert("this community address provided is already registered. Please contact your community committee for registration to Community Manager");
                 return;
             }
@@ -38,24 +41,7 @@ CmuntyMngr.controller("loginCtrl", function ($scope, $location, userSrv) {
                 return;
             }
         }
-        
-        
-
-        // userSrv.login($scope.email, $scope.pwd).then(function (user) {
-        //     // success login  sem-login
-        //     document.getElementById("loginForm").reset();
-        //     $('#sem-login').modal('hide');
-        //     $('body').removeClass('modal-open');
-        //     $('.modal-backdrop').remove();
-        //     $location.path("/dashboard");
-        // }, function (error) {
-        //     // failed login
-        //     alert(error);
-        //     document.getElementById("loginForm").reset();
-        //     $scope.invalidLogin = true;
-        // })
     }
-
     userSrv.getUsers().then(function (users) {
         $scope.users = users;
     }, function (error) {

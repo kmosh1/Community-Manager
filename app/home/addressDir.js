@@ -1,6 +1,6 @@
 CmuntyMngr.directive("addressView", function() {
     return {
-        templateUrl: "app/home/register/address.html",
+        templateUrl: "app/home/address.html",
         controller: "addressCtrl"
     }
 })

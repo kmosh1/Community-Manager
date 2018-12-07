@@ -8,6 +8,7 @@ CmuntyMngr.controller('navbarCtrl', function($scope, userSrv) {
         var currentUser = userSrv.getActiveUser();
         $scope.isUserCommittee = currentUser.isCommittee;
         $scope.userName = currentUser.fname + " " + currentUser.lname;
+        $scope.communityAddr = currentUser.address;
     }
 
     initNavbar ();

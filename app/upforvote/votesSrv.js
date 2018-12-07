@@ -39,28 +39,9 @@ CmuntyMngr.factory("votesSrv", function ($q, $http, userSrv) {
         return async.promise;
     }
 
-    function getAddresses(AddrSearchUrl) {
-        var proxyURL = "https://cors-anywhere.herokuapp.com/";
-        AddrSearchUrl = proxyURL + AddrSearchUrl;
-        adrresses = [];
-        var async = $q.defer();
-            $http.get(AddrSearchUrl).then(function (response) {
-                // success - update the addresses array
-                for (var i in response.data.predictions) {
-                    // var newAddr = new address(response.data.predictions[i].שם_רחוב, 1, response.data.predictions[i].שם_ישוב);
-                    var newAddr = new addrSrch(response.data.predictions[i].structured_formatting.main_text, response.data.predictions[i].place_id);
-                    adrresses.push(newAddr);
-                }
-                async.resolve(adrresses);
-            }, function(error) {
-                async.reject(error);
-            });
-        
-        return async.promise;
-    }
+
 
     return {
-        getAddresses: getAddresses,
         getTotal: getTotal
     }
 })

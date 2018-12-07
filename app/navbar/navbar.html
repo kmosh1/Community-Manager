@@ -17,10 +17,10 @@
                 <a class="btn p-1 border-right" href="#!/messages"><i class="fa fa-envelope-o"></i> messages</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-right" href="#!/upforvote"> up-for-vote</a>
+                <a class="btn p-1 border-right" href="#!/upforvote"><i class="fas fa-vote-yea"></i> up-for-vote</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-right" href="#">issue tracking</a>
+                <a class="btn p-1 border-right" href="#!/issues"><i class="fas fa-bug"></i> issue tracking</a>
             </li>
             <li class="nav-item" ng-show="isUserCommittee">
                 <a class="btn p-1" href="#!/tenants"><i class="fa fa-vcard-o"></i> tenants</a>
@@ -28,3 +28,4 @@
         </ul>
     </div>
 </nav>
+<h6 class="w-100 text-center">community: {{communityAddr}}</h6>
