@@ -26,12 +26,20 @@ CmuntyMngr.controller("loginCtrl", function ($scope, $location, userSrv) {
         $scope.invalidLogin = false;
         for (var i in $scope.users) {
             if ($scope.address === $scope.users[i].address) {
-                alert("this community address is already registered. Please contact your community committee for registration to Community Manager");
+                alert("this community address provided is already registered. Please contact your community committee for registration to Community Manager");
+                return;
+            }
+            if ($scope.email === $scope.users[i].email) {
+                alert("the email provided is already registered. Please check your email for Community Manager login details");
+                return;
+            }
+            if ($scope.pwd1 != $scope.pwd2) {
+                alert("the password and password confirmation do not match");
                 return;
             }
         }
-    
-
+        
+        
 
         // userSrv.login($scope.email, $scope.pwd).then(function (user) {
         //     // success login  sem-login
@@ -48,15 +56,11 @@ CmuntyMngr.controller("loginCtrl", function ($scope, $location, userSrv) {
         // })
     }
 
-
-
-
     userSrv.getUsers().then(function (users) {
         $scope.users = users;
     }, function (error) {
 
     })
-
 
     $scope.filterUsers = function (user) {
         CurrentUser = userSrv.getActiveUser();

@@ -19,6 +19,12 @@ CmuntyMngr.config(function ($routeProvider) {
       templateUrl: "app/tenants/tenants.html",
       controller: "loginCtrl"
     })
+    .when("/upforvote", {
+      templateUrl: "app/upforvote/upforvote.html",
+      controller: "loginCtrl",
+      controller: "VotesCtrl"
+
+    })
     .otherwise({
       templateUrl: "app/404.html"
     })
