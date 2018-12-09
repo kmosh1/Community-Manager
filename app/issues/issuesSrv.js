@@ -1,12 +1,12 @@
-CmuntyMngr.factory("votesSrv", function ($q, $http, userSrv) {
+CmuntyMngr.factory("issuesSrv", function ($q, $http, userSrv) {
 
-    function vote(addr, aprtmnt, city) {
+    function issue(addr, aprtmnt, city) {
         this.addr = addr;
         this.aprtmnt = aprtmnt;
         this.city = city;
     }
 
-
+ 
     function getTotal(AddrSearchUrl) {
         var async = $q.defer();
         if (addressesLoaded) {

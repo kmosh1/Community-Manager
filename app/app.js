@@ -1,4 +1,4 @@
-var CmuntyMngr = angular.module("CmuntyMngr", ['ngRoute']);
+var CmuntyMngr = angular.module("CmuntyMngr", ['ngRoute', 'ngImageInputWithPreview']);
 
 CmuntyMngr.config(function ($routeProvider) {
   $routeProvider.when("/", {
@@ -22,8 +22,12 @@ CmuntyMngr.config(function ($routeProvider) {
     .when("/upforvote", {
       templateUrl: "app/upforvote/upforvote.html",
       controller: "lgnRgsCtrl",
-      controller: "VotesCtrl"
-
+      controller: "votesCtrl"
+    })
+    .when("/issues", {
+      templateUrl: "app/issues/issues.html",
+      controller: "lgnRgsCtrl",
+      controller: "issuesCtrl"
     })
     .otherwise({
       templateUrl: "app/404.html"

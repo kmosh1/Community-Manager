@@ -1,4 +1,4 @@
-CmuntyMngr.controller("VotesCtrl", function ($scope, votesSrv) {
+CmuntyMngr.controller("votesCtrl", function ($scope, votesSrv) {
 
     $scope.toggle = false;
 

@@ -43,7 +43,11 @@
     overflow-wrap: break-word;
 }
 
-
+.user-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
 /* google address autocomplete block */
 
       /* Always set the map height explicitly to define the size of the div
@@ -94,5 +98,10 @@
       #locationField {
         height: 20px;
         margin-bottom: 2px;
+      }
+      .api-results {
+        position: absolute;
+        width: 94%;
+        z-index: 1;
       }
       /* google address autocomplete block */

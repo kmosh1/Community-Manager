@@ -1,30 +1,38 @@
-<div class="container">
-    <h1>Address</h1>
+<div class="w-100 p-0 m-0">
+    <div class="form-control-placeholder">Address</div>
 
 
 
-    <form class="search-box">
-        <input type="text" class="form-control" placeholder="בחר עיר" ng-model="cityText" ng-change="searchCity()" ng-click="toggle = false" ng-keydown="$event.keyCode === 13 && (toggle=!toggle)">
-        <div class="list-group search-results">
-            <botton class="list-group-item list-group-item-action" ng-repeat="citySrch in searchCities track by $index" ng-click="addCity(citySrch)">{{citySrch.main_text}}</botton>
+    <form class="search-box w-100">
+        <input type="text" class="form-control" placeholder="בחר עיר" ng-model="cityText" ng-change="searchCity()">
+        <div class="list-group api-results">
+            <botton class="list-group-item list-group-item-action list-group-item-success" ng-repeat="citySrch in searchCities track by $index"
+                ng-click="addCity(citySrch)">{{citySrch.main_text}}</botton>
         </div>
     </form>
-    <div class="row">
+    <div class="w-80">
         <div class="col-sm-6 col-lg-3" ng-repeat="citySrch in cities track by $index">
             <div class="row">
                 <h3>{{citySrch.main_text}} </h3>
             </div>
         </div>
     </div>
-    <form class="search-box" ng-show="toggle">
-        <input type="text" class="form-control" placeholder="בחר רחוב" ng-model="searchText" ng-change="searchChange()">
-        <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
-        <div class="list-group search-results">
+    <form class="search-box">
+        <div class="w-100">
+            <input type="text" class="form-control" placeholder="בחר רחוב" ng-model="searchText" ng-change="searchChange()">
+        </div>
+        <div class="w-50 float-left">
+            <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
+        </div>
+        <div class="w-50 float-right">
+            <input type="text" class="form-control" placeholder="מספר דירה" ng-model="apprtmntgNum">
+        </div>
+        <div class="list-group api-results">
             <botton class="list-group-item list-group-item-action" ng-repeat="addrSrch in searchResults" ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</botton>
         </div>
     </form>
 
-    <div class="row">
+    <div class="w-65">
         <div class="col-sm-6 col-lg-3" ng-repeat="addrSrch in adresses track by $index">
             <div class="row">
                 <h3>{{addrSrch.main_text}} </h3>
