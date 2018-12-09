@@ -5,7 +5,7 @@
 <div class="container mt-5">
     <table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="user in users | filter: filterUsers">
         <tr ng-click="toggle=!toggle">
-            <td  colspan="2">{{user.fname}} {{user.lname}}<span class="float-right">appartment: {{user.appartment}}</span></td>
+            <td colspan="2">{{user.fname}} {{user.lname}}<span class="float-right">appartment: {{user.appartment}}</span></td>
         </tr>
         <tr ng-show="toggle">
             <td class="bg-info">
@@ -34,40 +34,46 @@
                 <form class="text">
                     <div class="d-flex">
                         <div class="form-group w-40">
-                            <label class="form-control-placeholder" for="fname">First Name</label>
+                                <span><img class="label-icon" src="/images/user.gif"></span>
+                            <label class="form-control-placeholder" for="fname"> First Name</label>
                             <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
                         </div>
                         <div class="form-group w-40">
-                            <label class="form-control-placeholder" for="lname">Last Name</label>
+                            <label class="form-control-placeholder" for="lname"> Last Name</label>
                             <input type="name" class="form-control" required autocomplete="off" ng-model="lname">
                         </div>
                         <div class="form-group w-20">
-                            <label class="form-control-placeholder" for="apprtmntgNum">appartment</label>
+                            <label class="form-control-placeholder" for="apprtmntgNum"> appartment</label>
                             <input type="text" class="form-control" required autocomplete="off" ng-model="apprtmntgNum">
                         </div>
                     </div>
                     <div class="form-group w-50 float-left">
-                        <label class="form-control-placeholder" for="tnntImage">Add picture?</label>
+                            <span><img class="label-icon" src="/images/file.gif"></span>
+                            <label class="form-control-placeholder" for="tnntImage"> Add picture?</label>
                         <input class="float-left" type="file" name="tnntImage" image-with-preview ng-model="tnntImage"
                             accept="image/jpeg,image/png">
                     </div>
                     <div class="form-group w-50 float-right pr-4 text-center">
-                        <img class="float-right img-thumbnail rounded-circle user-img" ng-src="{{tnntImage.src}}" src="https://www.mie.ie/images/user-default.png" />
+                        <img class="float-right img-thumbnail rounded-circle user-img" ng-src="{{tnntImage.src}}" src="images/users.gif" />
                     </div>
                     <div class="form-group w-50 float-left">
-                        <label class="form-control-placeholder" for="email">Email address</label>
+                            <span><img class="label-icon" src="/images/email.gif"></span>
+                            <label class="form-control-placeholder" for="email"> Email address</label>
                         <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                     </div>
                     <div class="form-group w-50 float-right">
-                        <label class="form-control-placeholder" for="phone">Phone No# (opt)</label>
+                            <span><img class="label-icon" src="/images/phone.gif"></span>
+                            <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
                         <input type="phonenumber" class="form-control" required autocomplete="off" ng-model="phone">
                     </div>
                     <div class="form-group w-50 float-left">
-                        <label class="form-control-placeholder" for="password">Password</label>
+                            <span><img class="label-icon" src="/images/password1.gif"></span>
+                            <label class="form-control-placeholder" for="password"> Password</label>
                         <input type="password" class="form-control" required autocomplete="off" ng-model="pwd1">
                     </div>
                     <div class="form-group w-50 float-right">
-                        <label class="form-control-placeholder" for="password">Confirm Password</label>
+                            <span><img class="label-icon" src="/images/password.gif"></span>
+                            <label class="form-control-placeholder" for="password"> Confirm Password</label>
                         <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                     </div>
                     <div class="btn-check-log">

@@ -48,6 +48,13 @@
   height: 150px;
   object-fit: cover;
 }
+
+.label-icon {
+  width: 28px;
+  height: 28px;
+}
+
+
 /* google address autocomplete block */
 
       /* Always set the map height explicitly to define the size of the div

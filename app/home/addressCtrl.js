@@ -30,8 +30,8 @@ CmuntyMngr.controller("addressCtrl", function ($scope, addressSrv) {
 
     $scope.addAddress = function (result) {
         // Clean search box
-        $scope.searchResults = [];
-        $scope.searchText = result.main_text;
+        $scope.addrResults = [];
+        $scope.addrText = result.main_text;
     }
 
     $scope.addCity = function (result) {

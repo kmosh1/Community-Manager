@@ -1,5 +1,6 @@
 <div class="w-100 p-0 m-0">
-    <div class="form-control-placeholder">Address</div>
+       
+        <div class="form-control-placeholder"> <span><img class="label-icon" src="/images/home.gif"></span> Address</div>
 
 
 
@@ -28,7 +29,8 @@
             <input type="text" class="form-control" placeholder="מספר דירה" ng-model="apprtmntgNum">
         </div>
         <div class="list-group api-results">
-            <botton class="list-group-item list-group-item-action" ng-repeat="addrSrch in addrResults" ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</botton>
+            <botton class="list-group-item list-group-item-action" ng-repeat="addrSrch in addrResults" 
+            ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</botton>
         </div>
     </form>
 

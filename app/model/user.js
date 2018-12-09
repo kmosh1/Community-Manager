@@ -10,7 +10,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
     //     "email": "nir@nir.com",
     //     "pwd": "123"
     // });
-    function User(plainUser) {
+    function user(plainUser) {
         this.id = plainUser.id;
         this.fname = plainUser.fname;
         this.lname = plainUser.lname;
@@ -30,7 +30,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         $http.get(loginURL).then(function (response) {
             if (response.data.length > 0) {
                 // success login
-                activeUser = new User(response.data[0]);
+                activeUser = new user(response.data[0]);
                 async.resolve(activeUser);
             } else {
                 // invalid email or password
@@ -56,8 +56,8 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
             
             $http.get(getUserssURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
-                    var user = new User(response.data[i]);
-                    users.push(user);
+                    var newUser = new user(response.data[i]);
+                    users.push(newUser);
                 }
                 userLoaded = true;
                 async.resolve(users);
@@ -77,6 +77,25 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         var currentUser = getActiveUser();
         return activeUser.isCommittee ? true : false;
     }
+
+
+    function addUser(fname, lname, email, pwd, isCommittee, address, appartment, image) {
+        var async = $q.defer();
+
+        var newUser = new user({id:-1, fname: fname, lname: lname, email: email, pwd: pwd,
+            isCommittee: isCommittee, address: address, appartment: appartment, image: image});
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", newUser).then.....
+
+        users.push(newUser);
+        activeUser = newUser;
+        async.resolve(newUser);
+
+        return async.promise;
+    }
+
+
 
     function getUser(userId) {
         for (var i in users) {
@@ -101,6 +120,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         logout: logout,
         getActiveUser: getActiveUser,
         getUser: getUser,
-        getUsers: getUsers
+        getUsers: getUsers,
+        addUser: addUser
     }
 })

@@ -21,15 +21,28 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
             $scope.invalidLogin = true;
         })
     }
-    $scope.fullAddress = $scope.cityText + " ," + $scope.buildingNum + " " + $scope.searchText;
+
+
     $scope.register = function () {
-        $scope.invalidLogin = false;
-        var fullAddress = $scope.searchText + " " + $scope.buildingNum + " ," + $scope.cityText;
-        console.log(fullAddress);
+
+        if (!$scope.fname|| !$scope.lname || !$scope.email | !$scope.pwd
+        || !$scope.addrText || !$scope.buildingNum || !$scope.cityText || !$scope.apprtmntgNum) {
+            alert("first/last name, email, password, full address are mandatory fields");
+            return;
+        }
+
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($scope.email)) {
+            alert("Invalid Email...!!!!!!");
+            return;
+        }
+
         if ($scope.pwd1 != $scope.pwd2) {
             alert("the password and password confirmation do not match");
             return;
         }
+
+        var fullAddress = $scope.addrText + " " + $scope.buildingNum + " ," + $scope.cityText;
+        console.log(fullAddress);
 
         for (var i in $scope.users) {
             if (fullAddress === $scope.users[i].address) {
@@ -41,7 +54,27 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
                 return;
             }
         }
+
+        userSrv.addUser($scope.fname, $scope.lname, $scope.email, $scope.pwd, 1, fullAddress,
+            $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src: "https://www.mie.ie/images/user-default.png").then(function (user) {
+                alert("Registration successful!! congratulations! <br> Press OK to get into Community Manager");
+                document.getElementById("loginForm").reset();
+                $('#sem-reg').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+                $scope.invalidLogin = false;
+                $location.path("/tenants");
+            }, function (error) {
+                // failed register
+                alert(error);
+                document.getElementById("loginForm").reset();
+                $scope.invalidLogin = true;
+            })
     }
+
+
+
+    // INIT USERS //
     userSrv.getUsers().then(function (users) {
         $scope.users = users;
     }, function (error) {
