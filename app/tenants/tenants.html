@@ -7,11 +7,14 @@
         <tr ng-click="toggle=!toggle">
             <td>{{user.fname}} {{user.lname}}<span class="float-right">appartment: {{user.appartment}}</span></td>
         </tr>
-        <tr>
-            <td class="bg-info" ng-show="toggle">
+        <tr ng-show="toggle">
+            <td class="bg-info">
                 <h5>Name : {{user.fname}} {{user.lname}}</h5>
                 <h5>Email: {{user.email}}</h5>
                 <h5>is Committee member: {{user.isCommittee}} </h5>
+            </td>
+            <td>
+                    <img class="float-right img-thumbnail rounded-circle user-img" ng-src="{{user.image}}">
             </td>
         </tr>
     </table>
@@ -48,7 +51,7 @@
                             <input class="float-left" type="file" name="tnntImage" image-with-preview ng-model="tnntImage" accept="image/jpeg,image/png">
                     </div>
                     <div class="form-group w-50 float-right pr-4">
-                        <img class="float-right img-thumbnail rounded-circle user-img" ng-src="{{tnntImage.src}}" />
+                        <img class="float-right img-thumbnail rounded-circle user-img" ng-src="{{tnntImage.src}}"  src="https://www.mie.ie/images/user-default.png" />
                     </div>
                     <div class="form-group w-50 float-left">
                         <label class="form-control-placeholder" for="email">Email address</label>

@@ -72,7 +72,8 @@
             "pwd": "1234",
             "isCommittee": true,
             "address": "דבורה הנביאה 17 ,קרית טבעון",
-            "appartment": "1"
+            "appartment": "1",
+            "image": ""
         },
         {
             "id": 2,
@@ -82,7 +83,8 @@
             "pwd": "1234",
             "isCommittee": false,
             "address": "דבורה הנביאה 17 ,קרית טבעון",
-            "appartment": "2"
+            "appartment": "2",
+            "image": "https://www.mie.ie/images/user-default.png"
         },
         {
             "id": 3,
@@ -92,7 +94,8 @@
             "pwd": "1234",
             "isCommittee": true,
             "address": "אינטרנציונל 46 ,חיפה",
-            "appartment": "1"
+            "appartment": "1",
+            "image": "https://www.mie.ie/images/user-default.png"
         },
         {
             "id": 4,
@@ -102,7 +105,8 @@
             "pwd": "1234",
             "isCommittee": false,
             "address": "אינטרנציונל 46 ,חיפה",
-            "appartment": "3"
+            "appartment": "3",
+            "image": "https://www.mie.ie/images/user-default.png"
         } 
     ]
 }

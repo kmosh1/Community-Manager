@@ -1,10 +1,9 @@
 CmuntyMngr.controller("addressCtrl", function ($scope, addressSrv) {
 
     $scope.toggle = false;
-    var offset = 15000;
-    var total = 201;
-    $scope.adrresses = [];
+    $scope.addrResults = [];
     $scope.cities = [];
+    $scope.cityDetails = [];
 
     $scope.searchCity = function () {
         $scope.searchCities = [];
@@ -15,11 +14,16 @@ CmuntyMngr.controller("addressCtrl", function ($scope, addressSrv) {
         }, function (error) {
         })
     }
-    $scope.searchChange = function () {
-        $scope.searchResults = [];
-        var addrURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + $scope.searchText + "&types=address&components=country:il&language=he&key=AIzaSyDSGm7w4gwOJhruZbOsoeE4hXbYLj8IqBA";
+    $scope.searchAddr = function () {
+        $scope.addrResults = [];
+        var crntLocation = $scope.cityDetails[0].locationLat + "," + $scope.cityDetails[0].locationLng;
+        var crntRadius = $scope.cityDetails[0].radius;
+        var addrURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" + $scope.addrText + "&types=address&location=" + crntLocation + "&radius=" + crntRadius + "&strictbounds&language=he&key=AIzaSyDSGm7w4gwOJhruZbOsoeE4hXbYLj8IqBA";
+
+        https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%D7%93%D7%91%D7%95&types=address&location=32.716221,35.127483&radius=5000&language=he&key=AIzaSyDSGm7w4gwOJhruZbOsoeE4hXbYLj8IqBA&strictbounds
+
         addressSrv.getAddresses(addrURL).then(function (adrresses) {
-            $scope.searchResults = adrresses;
+            $scope.addrResults = adrresses;
         }, function (error) {
         })
     }
@@ -34,7 +38,11 @@ CmuntyMngr.controller("addressCtrl", function ($scope, addressSrv) {
         // Clean search box
         $scope.searchCities = [];
         $scope.cityText = result.main_text;
-        $scope.toggle = !$scope.toggle;
+        var addrURL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + result.placeId + "&key=AIzaSyDSGm7w4gwOJhruZbOsoeE4hXbYLj8IqBA";
+        addressSrv.getCityDetails(addrURL).then(function (cityDetails) {
+            $scope.cityDetails = cityDetails;
+        }, function (error) {
+        })
     }
 
     $scope.cityFilter = function (addrSrch) {

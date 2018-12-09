@@ -19,6 +19,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         this.isCommittee = plainUser.isCommittee;
         this.address = plainUser.address;
         this.appartment = plainUser.appartment;
+        this.image = plainUser.image;
     }
 
     function login(email, pwd) {
