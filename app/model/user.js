@@ -16,6 +16,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         this.lname = plainUser.lname;
         this.email = plainUser.email;
         this.pwd = plainUser.pwd;
+        this.phone = plainUser.phone;
         this.isCommittee = plainUser.isCommittee;
         this.address = plainUser.address;
         this.appartment = plainUser.appartment;
@@ -87,16 +88,16 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
 
     function isCommittee() {
         var currentUser = getActiveUser();
-        return activeUser.isCommittee ? true : false;
+        return (currentUser.isCommittee ==="Yes") ? true : false;
     }
 
 
-    function addUser(fname, lname, email, pwd, address, isCommittee, appartment, image) {
+    function addUser(fname, lname, email, pwd, address, phone, isCommittee, appartment, image) {
         var async = $q.defer();
 
         var newUser = new user({
             id: users[users.length - 1].id + 1, fname: fname, lname: lname, email: email, pwd: pwd,
-            isCommittee: isCommittee, address: address, appartment: appartment, image: image
+            phone: phone, isCommittee: isCommittee, address: address, appartment: appartment, image: image
         });
 
         // if working with real server:
@@ -109,6 +110,25 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         return async.promise;
     }
 
+    function editUser(user, fname, lname, email, pwd, phone, isCommittee, appartment, image) {
+
+        var async = $q.defer();
+        userIndex = users.indexOf(user);
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", findUser).then.....
+        users[userIndex].fname = fname;
+        users[userIndex].lname = lname;
+        users[userIndex].email = email;
+        users[userIndex].pwd = pwd;
+        users[userIndex].phone = phone;
+        users[userIndex].isCommittee = isCommittee;
+        users[userIndex].appartment = appartment;
+        users[userIndex].image = image;
+        async.resolve(true);
+
+        return async.promise;
+    }
 
 
     function getUser(userId) {
@@ -135,6 +155,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         getActiveUser: getActiveUser,
         getUser: getUser,
         getUsers: getUsers,
-        addUser: addUser
+        addUser: addUser,
+        editUser: editUser
     }
 })
