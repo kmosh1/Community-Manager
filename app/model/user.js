@@ -25,20 +25,32 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
     function login(email, pwd) {
         var async = $q.defer();
 
-        var loginURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/users?email=" +
-            email + "&pwd=" + pwd;
-        $http.get(loginURL).then(function (response) {
-            if (response.data.length > 0) {
-                // success login
-                activeUser = new user(response.data[0]);
+        // if working with real server:
+        //         var loginURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/users?email=" +
+        //         email + "&pwd=" + pwd;
+        //     $http.get(loginURL).then(function (response) {
+        //         if (response.data.length > 0) {
+        //             // success login
+        //             activeUser = new user(response.data[0]);
+        //             async.resolve(activeUser);
+        //         } else {
+        //             // invalid email or password
+        //             async.reject("invalid email or password")
+        //         }
+        //     }, function (error) {
+        //         async.reject(error);
+        //     });
+        // }
+
+        for (var i in users) {
+            if (users[i].email === email && users[i].pwd === pwd) {
+                activeUser = users[i];
                 async.resolve(activeUser);
-            } else {
-                // invalid email or password
-                async.reject("invalid email or password")
             }
-        }, function (error) {
-            async.reject(error);
-        });
+        }
+        if (activeUser == null) {
+            async.reject("invalid email or password")
+        }
 
         return async.promise;
     }
@@ -53,15 +65,15 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         } else {
             users = [];
             var getUserssURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/users";
-            
-            $http.get(getUserssURL).then(function(response) {
+
+            $http.get(getUserssURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var newUser = new user(response.data[i]);
                     users.push(newUser);
                 }
                 userLoaded = true;
                 async.resolve(users);
-            }, function(error) {
+            }, function (error) {
                 async.reject(error);
             });
         }
@@ -82,8 +94,10 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
     function addUser(fname, lname, email, pwd, isCommittee, address, appartment, image) {
         var async = $q.defer();
 
-        var newUser = new user({id:-1, fname: fname, lname: lname, email: email, pwd: pwd,
-            isCommittee: isCommittee, address: address, appartment: appartment, image: image});
+        var newUser = new user({
+            id: -1, fname: fname, lname: lname, email: email, pwd: pwd,
+            isCommittee: isCommittee, address: address, appartment: appartment, image: image
+        });
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", newUser).then.....
