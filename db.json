@@ -70,7 +70,8 @@
             "lname": "Korber",
             "email": "mk@mk.com",
             "pwd": "1234",
-            "isCommittee": true,
+            "phone": "055-3322110",
+            "isCommittee": "Yes",
             "address": "דבורה הנביאה 17 ,קרית טבעון",
             "appartment": "1",
             "image": "/images/Penguins.jpg"
@@ -81,7 +82,8 @@
             "lname": "amir",
             "email": "amir@amir.com",
             "pwd": "1234",
-            "isCommittee": false,
+            "phone": "055-3322110",
+            "isCommittee": "No",
             "address": "דבורה הנביאה 17 ,קרית טבעון",
             "appartment": "2",
             "image": "http://venus.novelplus.co/?i=bf428ccd-c1e8-4109-9109-21f27f70b0cc.jpg"
@@ -92,7 +94,8 @@
             "lname": "david",
             "email": "david@david.com",
             "pwd": "1234",
-            "isCommittee": true,
+            "phone": "055-3322110",
+            "isCommittee": "Yes",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "1",
             "image": "https://www.mie.ie/images/user-default.png"
@@ -103,7 +106,8 @@
             "lname": "tali",
             "email": "tali@tali.com",
             "pwd": "1234",
-            "isCommittee": false,
+            "phone": "055-3322110",
+            "isCommittee": "No",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "3",
             "image": "https://www.mie.ie/images/user-default.png"
