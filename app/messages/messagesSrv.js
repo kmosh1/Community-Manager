@@ -54,7 +54,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
 
         var userId = userSrv.getActiveUser().id;
 
-        var newMessage = new Message({id:-1, subject: subject, details: details,
+        var newMessage = new Message({id:messages[messages.length - 1].id + 1, subject: subject, details: details,
             createDate: new Date().toLocaleString(), priority: priority, userId: userId});
 
         // if working with real server:
@@ -98,7 +98,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
 
         var userId = userSrv.getActiveUser().id;
 
-        var newComment = new Comment({id:-1, details: details,
+        var newComment = new Comment({id:comments[comments.length - 1].id + 1, details: details,
             createDate: new Date().toLocaleString(), userId: userId, messageId: messageId});
 
         // if working with real server:

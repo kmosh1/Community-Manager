@@ -91,11 +91,11 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
     }
 
 
-    function addUser(fname, lname, email, pwd, isCommittee, address, appartment, image) {
+    function addUser(fname, lname, email, pwd, address, isCommittee, appartment, image) {
         var async = $q.defer();
 
         var newUser = new user({
-            id: -1, fname: fname, lname: lname, email: email, pwd: pwd,
+            id: users[users.length - 1].id + 1, fname: fname, lname: lname, email: email, pwd: pwd,
             isCommittee: isCommittee, address: address, appartment: appartment, image: image
         });
 
