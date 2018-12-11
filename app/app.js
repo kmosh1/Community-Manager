@@ -21,8 +21,7 @@ CmuntyMngr.config(function ($routeProvider) {
     })
     .when("/upforvote", {
       templateUrl: "app/upforvote/upforvote.html",
-      controller: "lgnRgsCtrl",
-      controller: "votesCtrl"
+      controller: "lgnRgsCtrl"
     })
     .when("/issues", {
       templateUrl: "app/issues/issues.html",

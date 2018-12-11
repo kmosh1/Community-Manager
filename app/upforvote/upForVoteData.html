@@ -1,0 +1,64 @@
+<div class="wrapper center-block">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" ng-repeat="upforvote in upforvotes">
+            <div class="panel-heading active" role="tab" id="heading{{upforvote.id}}">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{upforvote.id}}">
+                        {{upforvote.title}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{upforvote.id}}" class="panel-collapse collapse in" role="tabpanel">
+                <div class="panel-body">
+                    {{upforvote.details}}
+      </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="message in messages | filter: filterMessages" >
+            <col width="15%">
+                <col width="65%">
+                    <col width="20%">
+                        <tr ng-click="toggle=!toggle">
+                            <td class="posted"> posted by: <br> {{ getUserName(message.userId)}} <br> on: {{ message.createDate }} </td>
+                                <td ><h2></h2>Subject: {{ message.subject }}</h2></td>
+                                <td >({{ filtered.length }} comment/s) </td>
+        </tr>
+                            <tr >
+                                <td class="bg-info" colspan="3" ng-show="toggle">
+                                    <h5>Details: {{ message.details }}</h5>
+                                    <h6>Comments:</h6>
+                                    <table class="table table-bordered table-striped bg-warning">
+                                        <col width="20%">
+                                            <col width="80%">
+                                                <tr ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
+                                                    <td class="posted">posted by: <br> {{ getUserName(comment.userId)}} <br> on: {{ comment.createDate }}</td>
+                                                        <td>{{ comment.details }}</td>
+                    </tr>
+                </table>
+                                                    <button type="button" class="btn btn-info" ng-click="addComment(newComment,message.id)">Add comment</button>
+                                                    <textarea class="form-control float-right" rows="2" name="comment" id="comment" placeholder="write a comment..." ng-model="newComment"></textarea>
+ 
+            </td>
+        </tr>
+    </table>
+</div>  -->

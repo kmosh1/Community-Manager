@@ -14,6 +14,7 @@
                 <h5>Phone: {{user.phone}}</h5>
                 <h5>is Committee member: {{user.isCommittee}} </h5>
                 <botton type="botton" class="btn btn-primary float-right" data-toggle="modal" data-target="#edit-tnnt" ng-click="editTnnt(user)">Edit</botton>
+                <botton type="botton" class="btn btn-primary float-right" ng-click="deleteTnnt(user)">Delete</botton>
             </td>
             <td class="text-center">
                 <img class="img-thumbnail rounded-circle user-img" src="{{user.image}}">

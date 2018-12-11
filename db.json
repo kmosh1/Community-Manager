@@ -112,6 +112,19 @@
             "appartment": "3",
             "image": "https://www.mie.ie/images/user-default.png"
         } 
+    ],
+    "upForVotes": [
+        {
+            "id": 1,
+            "createdBy": 1,
+            "createdAt": "11/04/2018 16:30",
+            "title": "Repaining building entrance",
+            "details": "There is a need to repaint our building entrance.\n We got an offer for 5,000 Shekels, and it will take 3 days work.\n We have 3000 Shekels budget, so each appartment will have to add 400 Shekels.\n Please place your votes Yes/No.",
+            "options": "['Yes','No']",
+            "dueDate": "11/10/2018 20:00",
+            "votes": "['yes']",
+            "voted": "['apartment1']"
+        }
     ]
 }
 
