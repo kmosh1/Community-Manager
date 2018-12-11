@@ -1,7 +1,7 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 
 <h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages</h1>
-<a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg">New Message </a>
+<a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg">NEW MESSAGE </a>
 
 <messages-view></messages-view>
 
@@ -12,18 +12,19 @@
 
             <!-- Modal body -->
             <div class="modal-body seminor-login-modal-body">
-                <h5 class="modal-title text-center">ADD A NEW MESSAGE</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-                </button>
+                <h5 class="modal-title text-center">ADD A NEW MESSAGE
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </button>
+                </h5>
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control" required autocomplete="off" ng-model="subject">
                         <label class="form-control-placeholder" for="subject">Subject</label>
+                        <input type="text" class="form-control" required autocomplete="off" ng-model="subject">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="details" rows="3" ng-model="details" ng-maxlength="150"></textarea>
                         <label class="form-control-placeholder" for="details">Details</label>
+                        <textarea class="form-control" name="details" rows="3" ng-model="details" ng-maxlength="150"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="container-checkbox">
@@ -33,7 +34,8 @@
                         </label>
                     </div>
                     <div class="btn-check-log">
-                        <button type="button" class="btn" data-dismiss="modal" ng-click="addMessage(subject, details, priority)">Submit</button>
+                            <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" 
+                            ng-click="addMessage(subject, details, priority)">ADD MESSAGE</button>
                     </div>
                 </form>
             </div>

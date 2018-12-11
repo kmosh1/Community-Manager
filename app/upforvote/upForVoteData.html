@@ -1,83 +1,19 @@
 <div class="container mt-5">
+    <div id="accordion" class="accordion">
+        <div class="row" ng-repeat="upforvote in upforvotes | filter: filterUpforvotes"> <!--| filter: filterUpforvotes-->
+            <div class="card col-10 m-0 p-0 mx-auto border-0 nobg">
+                <div class="card-header m-0 p-0 border-0" id="heading{{upforvote.id}}">
 
-    <div class="row" ng-repeat="upforvote in upforvotes | filter: filterUpforvotes">
-        <div class="card col-10 m-0 p-0 mx-auto">
-            <div class="card-header m-0 p-0" id="heading{{upforvote.id}}">
-
-                <botton type="button" class="collapsed btn btn-black w-100 p-0 m-0" data-toggle="collapse" data-target="#collapse{{upforvote.id}}">
-                    <span class="col-9">{{upforvote.title}}</span><span class="col-3 mx-auto float-right"><i class="fa fa-hand-o-down"></i></span>
-                </botton>
-            </div>
-            <div id="collapse{{upforvote.id}}" class="collapse">
-                <div class="card-block">
-                    {{upforvote.details}}
+                    <button type="button" class="collapsed btn btn-info w-100 round" data-toggle="collapse"
+                        data-target="#upforvoteCollapse{{upforvote.id}}">
+                        <span class="col-9">{{upforvote.title}}</span><span class="col-3 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
+                    </button>
+                </div>
+                <div id="upforvoteCollapse{{upforvote.id}}" class="collapse col-10 mx-auto" data-parent="#accordion">
+                    <div class="card-block mt-2">
+                        {{upforvote.details}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    <!-- <div class="panel-group panel-dark" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default" ng-repeat="upforvote in upforvotes">
-            <div class="panel-heading active" role="tab" id="heading{{upforvote.id}}">
-                <h4 class="panel-title">
-                    <botton type="button" class="btn btn-black" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{upforvote.id}}">
-                        {{upforvote.title}}
-                    </botton>
-                </h4>
-            </div>
-            <div id="collapse{{upforvote.id}}" class="panel-collapse collapse in" role="tabpanel">
-                <div class="panel-body">
-                    {{upforvote.details}}
-      </div>
-            </div>
-        </div>
-    </div>
-</div>
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- 
-<table class="table table-bordered table-dark m-0 p-0 col-10 mx-auto" ng-repeat="message in messages | filter: filterMessages" >
-            <col width="15%">
-                <col width="65%">
-                    <col width="20%">
-                        <tr ng-click="toggle=!toggle">
-                            <td class="posted"> posted by: <br> {{ getUserName(message.userId)}} <br> on: {{ message.createDate }} </td>
-                                <td ><h2></h2>Subject: {{ message.subject }}</h2></td>
-                                <td >({{ filtered.length }} comment/s) </td>
-        </tr>
-                            <tr >
-                                <td class="bg-info" colspan="3" ng-show="toggle">
-                                    <h5>Details: {{ message.details }}</h5>
-                                    <h6>Comments:</h6>
-                                    <table class="table table-bordered table-striped bg-warning">
-                                        <col width="20%">
-                                            <col width="80%">
-                                                <tr ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
-                                                    <td class="posted">posted by: <br> {{ getUserName(comment.userId)}} <br> on: {{ comment.createDate }}</td>
-                                                        <td>{{ comment.details }}</td>
-                    </tr>
-                </table>
-                                                    <button type="button" class="btn btn-info" ng-click="addComment(newComment,message.id)">Add comment</button>
-                                                    <textarea class="form-control float-right" rows="2" name="comment" id="comment" placeholder="write a comment..." ng-model="newComment"></textarea>
- 
-            </td>
-        </tr>
-    </table>
-</div>  -->
