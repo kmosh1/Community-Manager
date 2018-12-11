@@ -1,4 +1,4 @@
-CmuntyMngr.controller("messagesCtrl", function ($scope, messages, $location, userSrv) {
+CmuntyMngr.controller("messagesCtrl", function ($scope, messages, userSrv) {
 
      messages.getMessages().then(function (messages) {
         $scope.messages = messages;

@@ -124,6 +124,17 @@
             "dueDate": "11/10/2018 20:00",
             "votes": "['yes']",
             "voted": "['apartment1']"
+        },
+        {
+            "id": 2,
+            "createdBy": 3,
+            "createdAt": "12/14/2018 16:30",
+            "title": "Replacing building entrance door",
+            "details": "Per request from Tali, putting up for vote on replacing the building entrance door.\n cost: 3000-4000 Shekel.\n Please place your votes Yes/No.",
+            "options": "['Yes','No']",
+            "dueDate": "12/21/2018 20:00",
+            "votes": "['yes']",
+            "voted": "['apartment3']"
         }
     ]
 }

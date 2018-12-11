@@ -114,31 +114,11 @@
 
   /* Accordion Block Start */
 
-  .panel-heading {
-    padding: 0;
-    border:0;
-  }
-  .panel-title>a, .panel-title>a:active{
-    display:block;
-    padding:15px;
-    color:#555;
-    font-size:16px;
-    font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    word-spacing:3px;
-    text-decoration:none;
-  }
-  .panel-heading  a:before {
-     font-family: 'Glyphicons Halflings';
-     content: "\e114";
-     float: right;
-     transition: all 0.5s;
-  }
-  .panel-heading.active a:before {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    transform: rotate(180deg);
-  } 
+.card-header .fa {
+  transition: .3s transform ease-in-out;
+}
+.card-header .collapsed .fa {
+  transform: rotate(90deg);
+}
 
-   /* Accordion Block End */
+  /* Accordion Block End */

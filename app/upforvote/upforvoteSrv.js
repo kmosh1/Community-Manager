@@ -46,7 +46,7 @@ CmuntyMngr.factory("upforvoteSrv", function ($q, $http, userSrv) {
             $http.get(getupForVotesURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var newupForVote = new upForVote(response.data[i]);
-                    upForVotes.push(message);
+                    upForVotes.push(newupForVote);
                 }
                 upForVoteLoaded = true;
                 async.resolve(upForVotes);
