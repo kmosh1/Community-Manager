@@ -26,7 +26,6 @@ CmuntyMngr.config(function ($routeProvider) {
     .when("/issues", {
       templateUrl: "app/issues/issues.html",
       controller: "lgnRgsCtrl",
-      controller: "issuesCtrl"
     })
     .otherwise({
       templateUrl: "app/404.html"
