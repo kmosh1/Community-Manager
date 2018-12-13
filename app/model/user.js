@@ -110,21 +110,21 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         return async.promise;
     }
 
-    function editUser(user, fname, lname, email, pwd, phone, isCommittee, appartment, image) {
+    function editUser(user, pwd) {
 
         var async = $q.defer();
         userIndex = users.indexOf(user);
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", findUser).then.....
-        users[userIndex].fname = fname;
-        users[userIndex].lname = lname;
-        users[userIndex].email = email;
+        users[userIndex].fname = user.fname;
+        users[userIndex].lname = user.lname;
+        users[userIndex].email = user.email;
         users[userIndex].pwd = pwd;
-        users[userIndex].phone = phone;
-        users[userIndex].isCommittee = isCommittee;
-        users[userIndex].appartment = appartment;
-        users[userIndex].image = image;
+        users[userIndex].phone = user.phone;
+        users[userIndex].isCommittee = user.isCommittee;
+        users[userIndex].appartment = user.appartment;
+        users[userIndex].image = user.image;
         async.resolve(true);
 
         return async.promise;

@@ -1,30 +1,27 @@
 <div class="container mt-5">
     <div id="msgAccordion" class="accordion">
-        <div class="row" ng-repeat="message in messages | filter: filterMessages">
-            <!--| filter: filterMessages-->
+        <div class="row" ng-repeat="message in messages">   <!--| filter: filterMessages-->
             <div class="card card-transparent col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{message.id}}">
 
-                    <button type="button" class="collapsed btn btn-info round w-100" data-toggle="collapse" data-target="#messageCollapse{{message.id}}">
-                        <span class="col-3 float-left posted">posted by: <br> {{getUserName(message.userId)}} <br> on:
-                            {{message.createDate}}</span>
-                        <span class="col-7">
-                            <h2></h2>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h2>
+                    <button type="button" class="collapsed btn btn-warning round w-100" data-toggle="collapse" data-target="#messageCollapse{{message.id}}">
+                        <span class="col-8 float-left posted">posted by: {{getUserName(message.userId)}} on: {{message.createDate}}<br>
+                            <h5>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h5>
                         </span>
+                        <span class="col-2 mx-auto"><label type="button" class="btn btn-danger round" ng-click="deleteMsg(message.id)">Delete</label></span>
                         <span class="col-2 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
                     </button>
                 </div>
-                <div id="messageCollapse{{message.id}}" class="collapse col-11 mx-auto transparent" data-parent="#msgAccordion">
+                <div id="messageCollapse{{message.id}}" class="collapse col-11 mx-auto" data-parent="#msgAccordion">
                     <div class="card-block mt-2">
-                        <h6 class="red">Details: {{message.details}}</h6>
+                        <label>Details: {{message.details}}</label>
                         <h6>Comments:</h6>
-                        <div class="row mx-auto bg-warning round border-primary" ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
+                        <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
                             <label class="posted col-3">posted by: <br> {{getUserName(comment.userId)}}
                                 <br> on:
                                 {{comment.createDate}}</label>
                             <label class="col-9 float-right">{{comment.details}}</label>
                         </div>
-
                         <button type="button" class="btn-check-login col-6 mx-auto bg-info" ng-click="addComment(newComment,message.id)">ADD
                             COMMENT</button>
                         <textarea class="form-control float-right" rows="2" name="comment" id="comment" placeholder="write a comment..."

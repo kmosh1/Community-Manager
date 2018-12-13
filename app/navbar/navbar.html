@@ -1,29 +1,29 @@
-<nav class="navbar navbar-expand-md navbar-warning bg-warning">
+<nav class="navbar navbar-expand-md nobg">
     <!-- Brand -->
     <img class="navbar-brand" src="/images/CommunityManager.png">
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="dark-blue-text"><i
+            <span class=" text-warning"><i
                 class="fa fa-bars fa-1x"></i></span>
     </button>
     <!-- Navbar links -->
-    <a class="btn" id="logout" href="#" ng-click="logout()"><span class="username">{{userName}}</span><br> (Logout)</a>
+    <a class="btn text-warning" id="logout" href="#" ng-click="logout()"><span class="username">{{userName}}</span><br> (Logout)</a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="btn p-1  border-left" href="#!/dashboard"><i class="fa fa-dashboard"></i> dashboard</a>
+            <li class="nav-item ">
+                <a class="btn p-1 border-left text-warning" href="#!/dashboard"><i class="fa fa-dashboard"></i> dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-left" href="#!/messages"><i class="fa fa-envelope-o"></i> messages</a>
+                <a class="btn p-1 border-left text-warning" href="#!/messages"><i class="fa fa-envelope-o"></i> messages</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-left" href="#!/upforvote"><i class="fas fa-vote-yea"></i> up-for-vote</a>
+                <a class="btn p-1 border-left text-warning" href="#!/upforvote"><i class="fas fa-vote-yea"></i> up-for-vote</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-left" href="#!/issues"><i class="fas fa-bug"></i> issue tracking</a>
+                <a class="btn p-1 border-left text-warning" href="#!/issues"><i class="fas fa-bug"></i> issue tracking</a>
             </li>
             <li class="nav-item" ng-show="isUserCommittee()">
-                <a class="btn p-1  border-left" href="#!/tenants"><i class="fa fa-vcard-o"></i> tenants</a>
+                <a class="btn p-1  border-left text-warning" href="#!/tenants"><i class="fa fa-vcard-o"></i> tenants</a>
             </li>
         </ul>
     </div>

@@ -64,34 +64,35 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
     }
 
     $scope.editTnnt = function (user) {
-        $("#editTnntForm").autofill(user);
+        // $("#editTnntForm").autofill(user);
         $("#myImage").attr("src", user.image);
+        // $('#fname').attr("value","testing");
         $scope.editedUser = user;
     }
 
     $scope.editUser = function () {
         //alert(JSON.stringify($scope.editedUser));
-        var fname = $scope.fname ? $scope.fname : $scope.editedUser.fname;
-        var lname = $scope.lname ? $scope.lname : $scope.editedUser.lname;
-        $scope.editedEmail = $scope.email ? $scope.email : $scope.editedUser.email;
+        // var fname = $scope.fname ? $scope.fname : $scope.editedUser.fname;
+        // var lname = $scope.lname ? $scope.lname : $scope.editedUser.lname;
+        // $scope.editedEmail = $scope.email ? $scope.email : $scope.editedUser.email;
         $scope.editedPwd1 = $scope.pwd1 ? $scope.pwd1 : $scope.editedUser.pwd;
         $scope.editedPwd2 = $scope.pwd2 ? $scope.pwd2 : $scope.editedUser.pwd;
-        var phone = $scope.phone ? $scope.phone : $scope.editedUser.phone;
-        var isCommittee = $scope.isCommittee ? $scope.isCommittee : $scope.editedUser.isCommittee;
-        var apprtmntgNum = $scope.apprtmntgNum ? $scope.apprtmntgNum : $scope.editedUser.appartment;
-        var image = $scope.myImage ? $scope.myImage.src : $scope.editedUser.image;
+        // var phone = $scope.phone ? $scope.phone : $scope.editedUser.phone;
+        // var isCommittee = $scope.isCommittee ? $scope.isCommittee : $scope.editedUser.isCommittee;
+        // var apprtmntgNum = $scope.apprtmntgNum ? $scope.apprtmntgNum : $scope.editedUser.appartment;
+        // var image = $scope.myImage ? $scope.myImage.src : $scope.editedUser.image;
         if (formValidation($scope.editedUser.address, 3)) {
-            userSrv.editUser($scope.editedUser, fname, lname, $scope.editedEmail, $scope.editedPwd1, phone,
-                isCommittee, apprtmntgNum, image).then(function (success) {
-                    if (success) {
+            // userSrv.editUser($scope.editedUser, $scope.editedPwd1).then(function (success) {
+            //         if (success) {
                         alert("Tenant edited and saved succcessfully");
                         document.getElementById("editTnntForm").reset();
                         $('#edit-tnnt').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         $scope.editedUser = {};
-                    }
-                })
+            //         }
+            //     })
+            $scope.editedUser = {};
         }
     }
         // INIT USERS //
@@ -113,7 +114,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
         function formValidation(fullAddress, modalNum) {
 
             if (modalNum === 3) {
-                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($scope.editedEmail)) {
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($scope.editedUser.email)) {
                     alert("Invalid Email...!!!!!!");
                     return false;
                 }

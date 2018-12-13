@@ -1,3 +1,17 @@
+html, body {
+    height:100%;
+}
+
+body {
+    background-image: url("/images/apartment-house.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    /* object-fit: contain; */
+    color: lime;
+    background-position: left top;
+}
+
+
 .logo {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -21,6 +35,10 @@
     top: 0px;
 }
 
+.modal-content {
+    background-color: aquamarine;
+    color: red;
+}
 .username {
     color: red;
     font-size: 10px;
@@ -34,7 +52,6 @@
 .row.dashboard {
     height: 500px;
     max-height: 500px;
-    background-color: aquamarine;
 }
 
 .box {
@@ -59,6 +76,20 @@
   background-color: transparent;
 }
 
+.delete {
+    display: inline-block;
+}
+
+.collapse {
+    background-color: rgba(247, 246, 195, 0.7);
+    color: darkblue;
+    font-weight: bold;
+ }
+
+.collapse.navbar-collapse {
+    background-color: transparent; 
+}
+
 .card-header .fas {
   transition: .3s transform ease-in-out;
  }
@@ -66,7 +97,7 @@
   transform: rotate(-180deg);
 }
 
-.round, .round:hover{
+button, .round, .round:hover{
   margin: 1px;
   border: 2px solid transparent;
   border-radius: 16px;

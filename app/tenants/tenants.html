@@ -5,10 +5,10 @@
 
 <div class="container mt-5">
     <div id="tnntAccordion" class="accordion">
-        <div class="row" ng-repeat="user in users | filter: filterUsers"> <!--| filter: filterUsers--> 
+        <div class="row" ng-repeat="user in users "> <!--| filter: filterUsers--> 
             <div class="card card-transparent col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{user.id}}">
-                    <button type="button" class="collapsed btn btn-info round w-100" data-toggle="collapse" data-target="#tnntCollapse{{user.id}}">
+                    <button type="button" class="collapsed btn btn-warning round w-100" data-toggle="collapse" data-target="#tnntCollapse{{user.id}}">
                         <span class="col-8 float-left">{{user.fname}} {{user.lname}}</span>
                         </span>
                         <span class="col-2 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
@@ -17,10 +17,10 @@
                 <div id="tnntCollapse{{user.id}}" class="collapse col-11 mx-auto transparent" data-parent="#tnntAccordion">
                     <div class="card-block mt-2">
                         <label class="col-6">
-                            <h5>Name : {{user.fname}} {{user.lname}}</h5>
-                            <h5>Email: {{user.email}}</h5>
-                            <h5>Phone: {{user.phone}}</h5>
-                            <h5>is Committee member: {{user.isCommittee}} </h5>
+                            <span>Name : {{user.fname}} {{user.lname}}</span><br>
+                            <span>Email: {{user.email}}</span><br>
+                            <span>Phone: {{user.phone}}</span><br>
+                            <span class="mx-auto">is Committee member: {{user.isCommittee}} </span><br>
                             <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#edit-tnnt"
                                 ng-click="editTnnt(user)">EDIT</button>
                             <button type="button" class="btn btn-primary float-right" ng-click="deleteTnnt(user)">DELETE</button>
@@ -133,15 +133,15 @@
                         <div class="form-group col-4 px-2 m-0">
                             <span><img class="label-icon" src="/images/user.gif"></span>
                             <label class="form-control-placeholder" for="fname"> First Name</label>
-                            <input type="name" class="form-control" name="fname" autocomplete="off" ng-model="fname">
+                            <input type="text" class="form-control" name="fname" id="fname" autocomplete="off" ng-model="editedUser.fname">
                         </div>
                         <div class="form-group col-4 px-2 m-0">
                             <label class="form-control-placeholder" for="lname"> Last Name</label>
-                            <input type="name" class="form-control" name="lname" autocomplete="off" ng-model="lname">
+                            <input type="name" class="form-control" name="lname" autocomplete="off" ng-model="editedUser.lname">
                         </div>
                         <div class="form-group col-2 px-2 mx-auto">
                             <label class="form-control-placeholder" for="apprtmntgNum"> appartment</label>
-                            <input type="text" class="form-control" name="appartment" autocomplete="off" ng-model="apprtmntgNum">
+                            <input type="text" class="form-control" name="appartment" autocomplete="off" ng-model="editedUser.appartment">
                         </div>
                     </div>
 
@@ -154,24 +154,24 @@
                         </div>
                         <div class="form-group col-6 px-2 mx-auto">
                             <img class="img-thumbnail rounded-circle user-img" id="myImage" name="image" ng-src="{{myImage.src}}"
-                                src="images/users.gif" />
+                                src="{{editedUser.image}}" />
                         </div>
                     </div>
                     <div class="row m-2">
                         <div class="form-group col-5 px-2 m-0">
                             <span><img class="label-icon" src="/images/email.gif"></span>
                             <label class="form-control-placeholder" for="email"> Email address</label>
-                            <input type="email" class="form-control" name="email" autocomplete="off" ng-model="email">
+                            <input type="email" class="form-control" name="email" autocomplete="off" ng-model="editedUser.email">
                         </div>
                         <div class="form-group col-5 px-2 m-0">
                             <span><img class="label-icon" src="/images/phone.gif"></span>
                             <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
-                            <input type="phonenumber" class="form-control" name="phone" autocomplete="off" ng-model="phone">
+                            <input type="phonenumber" class="form-control" name="phone" autocomplete="off" ng-model="editedUser.phone">
                         </div>
                         <div class="form-group col-2 px-0 mx-auto">
                             <div class="form-group">
                                 <label class="form-control-placeholder" for="isCommittee"> Committee?</label>
-                                <select type="text" class="form-control" name="isCommittee" autocomplete="off" ng-model="isCommittee">
+                                <select type="text" class="form-control" name="isCommittee" autocomplete="off" ng-model="editedUser.isCommittee">
                                     <option>No</option>
                                     <option>Yes</option>
                                 </select>

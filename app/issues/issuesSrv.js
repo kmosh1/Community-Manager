@@ -5,8 +5,8 @@ CmuntyMngr.factory("issuesSrv", function ($q, $http, userSrv) {
 
     function issue(plainIssue) {
         this.id = plainIssue.id;
-        this.openedBy = plainIssue.openedBy;
-        this.openedAt = plainIssue.openedAt;
+        this.createdBy = plainIssue.createdBy;
+        this.createdAt = plainIssue.createdAt;
         this.title = plainIssue.title;
         this.details = plainIssue.details;
         this.options = plainIssue.options;

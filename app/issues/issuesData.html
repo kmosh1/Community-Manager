@@ -1,19 +1,19 @@
 <div class="container mt-5">
     <div id="issueAccordion" class="accordion">
-        <div class="row" ng-repeat="issue in issues | filter: filterissues"> <!--| filter: filterissues-->
+        <div class="row" ng-repeat="issue in issues"> <!--| filter: filterissues-->
             <div class="card col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{issue.id}}">
 
-                    <button type="button" class="collapsed btn btn-info w-100 round" data-toggle="collapse"
+                    <button type="button" class="collapsed btn btn-warning w-100 round" data-toggle="collapse"
                         data-target="#issueCollapse{{issue.id}}">
                         <span class="col-9">{{issue.title}}</span><span class="col-3 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
                     </button>
                 </div>
                 <div id="issueCollapse{{issue.id}}" class="collapse col-10 mx-auto" data-parent="#issueAccordion">
                     <div class="card-block mt-2">
-                        <h6 class="red">Details: {{issue.details}}</h6>
+                        <label>Details: {{issue.details}}</label>
                         <h6>Comments:</h6>
-                        <div class="row mx-auto bg-warning round border-primary" ng-repeat="comment in comments | filter: {issueId:issue.id} as filtered">
+                        <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {issueId:issue.id} as filtered">
                             <label class="posted col-3">posted by: <br> {{getUserName(comment.userId)}}
                                 <br> on:
                                 {{comment.createDate}}</label>
