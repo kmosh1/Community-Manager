@@ -1,40 +1,55 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 
 
-    <h1 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote</h1>
-    <a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-vote">New Up-For-Vote </a>
-    <upforvote-view></upforvote-view>
+<h1 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote</h1>
 
-    <!-- The Modal -->
+<div class="col-10 mx-auto">
+    <h5>
+        <label class="col-3"><i class="fas fa-check-circle text-success"></i>you have voted</label>
+        <label class="col-3"><i class="fas fa-minus-circle text-primary"></i>Voting ended</label>
+        <label class="col-5"><i class="fas fa-exclamation-circle text-danger"></i>less than 2 days to DueDate</label>
+    </h5>
+</div>
+<a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-vote" ng-show="isUserCommittee()">New
+    Up-For-Vote </a>
+<upforvote-view></upforvote-view>
+
+<!-- The Modal -->
 <div class="modal fade seminor-login-modal" data-backdrop="static" id="new-vote">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-    
-                <!-- Modal body -->
-                <div class="modal-body seminor-login-modal-body">
-                    <h5 class="modal-title text-center">ADD A NEW UP-FOR-VOTE
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body seminor-login-modal-body">
+                <h5 class="modal-title text-center">ADD A NEW UP-FOR-VOTE
                     <button type="button" class="close" data-dismiss="modal">
                         <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
                     </button>
                 </h5>
-                    <form>
-                        <div class="form-group">
-                                <label class="form-control-placeholder" for="title">Title</label>
-                                <input type="text" class="form-control" required autocomplete="off" ng-model="title">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-placeholder" for="details">Details</label>
-                            <textarea class="form-control" name="details" rows="3" ng-model="details" ng-maxlength="150"></textarea>
-                        </div>
-                        <div class="form-group">
-                                <label class="form-control-placeholder" for="dueDate">dueDate</label>
-                                <input type="text" class="form-control" required autocomplete="off" ng-model="dueDate">
-                            </div>
-                        <div class="btn-check-log">
-                                <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="addUpforvote(title, details, priority)">ADD UP-FOR-VOTE</button>
-                        </div>
-                    </form>
-                </div>
+                <form id="newVoteForm">
+                    <div class="form-group">
+                        <label class="form-control-placeholder" for="title">Title</label>
+                        <input type="text" class="form-control" required autocomplete="off" ng-model="title">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-placeholder" for="details">Details</label>
+                        <textarea class="form-control" name="details" rows="3" ng-model="details" ng-maxlength="150"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-placeholder" for="dueDate">dueDate</label>
+                        <input type="text" class="form-control" required autocomplete="off" ng-model="dueDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-placeholder" for="voteOptions">VoteOptions</label>
+                        <input type="text" class="form-control" required autocomplete="off" ng-model="voteOptions"
+                            placeholder="example for yes/no votes, write here yes,no">
+                    </div>
+                    <div class="btn-check-log">
+                        <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="addUpforvote()">ADD
+                            UP-FOR-VOTE</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>

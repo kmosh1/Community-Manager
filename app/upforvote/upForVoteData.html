@@ -1,33 +1,88 @@
 <div class="container mt-5">
     <div id="accordion" class="accordion">
-        <div class="row" ng-repeat="upforvote in upforvotes">
+        <div class="row" ng-repeat="upforvote in upforvotes ">
             <!--| filter: filterUpforvotes-->
-
-            {{upforvote}}
             <div class="card col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{upforvote.id}}">
 
                     <button type="button" class="collapsed btn btn-warning w-100 round" data-toggle="collapse"
                         data-target="#upforvoteCollapse{{upforvote.id}}">
-                        <span class="col-9">{{upforvote.title}}</span><span class="col-3 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
+                        <h6>
+                            <span class="col-1 float-left">
+                                <label ng-show="hasVoted[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-check-circle text-success"></i></label>
+                            </span>
+                            <span class="col-1 float-left">
+                                <label ng-show="dueDate2Days[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-exclamation-circle text-danger"></i></label>
+                            </span>
+                            <span class="col-1 float-left">
+                                <label ng-show="passedDueDate[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-minus-circle text-primary"></i></label>
+                            </span>
+                            <span class="col-7 float-left m-0 p-0">{{upforvote.title}}</span><span class="col-1 mx-auto float-right"><i
+                                    class="fas fa-arrow-up    "></i></span>
+                        </h6>
                     </button>
                 </div>
                 <div id="upforvoteCollapse{{upforvote.id}}" class="collapse col-10 mx-auto" data-parent="#accordion">
                     <div class="card-block mt-2">
-                        <label>{{upforvote.details}}
+
+                        <p>{{upforvote.details}}
                             <br>
-                            <span class="float-right">
-                                <div for="sel1">Vote options:</div>
-                                <select ng-model="vote">
-                                    <option value="{{option.id}}" ng-repeat="option in upforvote.options track by $index">
+                            <div ng-show="upforvoteURL()">
+                                <p ng-show="hasVoted[{{upforvote.id}}]"> You already voted
+                                    {{checkVoted(upforvote)[0]}}</p>
+                                <span class="mx-auto">
+                                    <div class="col-6 float-left" ng-hide="{{checkDueDate(upforvote)[1]}}">Vote options:
+                                    <select ng-model="vote">
+                                        <option value="{{option.vote}}" ng-repeat="option in upforvote.options track by $index">
                                             {{option.vote}}
-                                    </option>
-                                </select>
-                                <button type="button" class="btn btn-info" ng-click="castVote(vote)">Cast Vote</button>
-                            </span>
-                        </label>
+                                        </option>
+                                    </select>
+                                    <button type="button" class="btn btn-info" ng-click="castVote(upforvote,vote)">Cast
+                                        Vote</button>
+                                    </div>
+                                        <button type="button" class="btn btn-info col-5 float-right" data-toggle="modal" data-target="#new-dueDate"
+                                        ng-click="editDueDate(upforvote)">
+                                        <span ng-show="isUserCommittee()" class="posted">Committe can click to change</span><br>
+                                        DueDate: {{upforvote.dueDate}}</button>
+                                </span>
+                            </div>
+                            <div ng-hide="upforvoteURL()">
+                                <p>DueDate: {{upforvote.dueDate}}</p>
+                                <p>Go to Up-For-Vote page for voting</p>
+                            </div>
+                        </p>
+                        <br>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade seminor-login-modal" data-backdrop="static" id="new-dueDate">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body seminor-login-modal-body">
+                <h5 class="modal-title text-center">CHANGE UP-FOR-VOTE DUEDATE
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                    </button>
+                </h5>
+                <p> Previous DueDate: {{upforvote.dueDate}}</p>
+                <form id="newVoteForm">
+                    <div class="form-group">
+                        <label class="form-control-placeholder" for="NewDueDate">NewdueDate</label>
+                        <input type="text" class="form-control" required autocomplete="off" ng-model="editedDueDate.dueDate">
+                    </div>
+                    <div class="btn-check-log">
+                        <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="editUFVDueDate()">CHANGE
+                            UP-FOR-VOTE DUEDATE</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

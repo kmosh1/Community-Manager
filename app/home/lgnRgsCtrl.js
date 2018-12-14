@@ -4,7 +4,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
     // $scope.pwd = "1234";
     $scope.invalidLogin = false;
     $scope.editedUser = {};
-
+    $scope.activeUser = {};
     $scope.login = function () {
         $scope.invalidLogin = false;
 
@@ -14,6 +14,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv) {
             $('#sem-login').modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
+            $scope.activeUser = user;
             $location.path("/dashboard");
         }, function (error) {
             // failed login
