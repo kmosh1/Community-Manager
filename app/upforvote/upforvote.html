@@ -3,15 +3,16 @@
 
 <h1 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote</h1>
 
-<div class="col-10 mx-auto">
+<div class="col-10 text-center mx-auto">
     <h5>
         <label class="col-3"><i class="fas fa-check-circle text-success"></i>you have voted</label>
-        <label class="col-3"><i class="fas fa-minus-circle text-primary"></i>Voting ended</label>
         <label class="col-5"><i class="fas fa-exclamation-circle text-danger"></i>less than 2 days to DueDate</label>
+        <label class="col-3"><i class="fas fa-minus-circle text-primary"></i>Voting ended</label>
     </h5>
 </div>
 <a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-vote" ng-show="isUserCommittee()">New
     Up-For-Vote </a>
+
 <upforvote-view></upforvote-view>
 
 <!-- The Modal -->
@@ -35,10 +36,22 @@
                         <label class="form-control-placeholder" for="details">Details</label>
                         <textarea class="form-control" name="details" rows="3" ng-model="details" ng-maxlength="150"></textarea>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="form-control-placeholder" for="dueDate">dueDate</label>
                         <input type="text" class="form-control" required autocomplete="off" ng-model="dueDate">
+                    </div> -->
+
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                                <label class="form-control-placeholder" for="dueDate">dueDate</label>
+                                <input type="text" name="dueDate" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
                     </div>
+
+
                     <div class="form-group">
                         <label class="form-control-placeholder" for="voteOptions">VoteOptions</label>
                         <input type="text" class="form-control" required autocomplete="off" ng-model="voteOptions"

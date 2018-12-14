@@ -4,16 +4,16 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
     $scope.passedDueDate = [];
     $scope.dueDate2Days = [];
     $scope.editedDueDate = {};
+    // $scope.dueDate = "";
 
-    // $scope.newUpforvote = new upforvote();
-    // handle accordion animation
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            //  inline: true,
+            //  sideBySide: true,
+            minDate: new Date(),
+            format: 'DD/MM/YYYY HH:mm'
 
-    $('.panel-collapse').on('show.bs.collapse', function () {
-        $(this).siblings('.panel-heading').addClass('active');
-    });
-
-    $('.panel-collapse').on('hide.bs.collapse', function () {
-        $(this).siblings('.panel-heading').removeClass('active');
+        });
     });
 
     // load votes from json
@@ -88,25 +88,28 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
 
     $scope.addUpforvote = function () {
         //validate new vote data
+        console.log(JSON.stringify($('#datetimepicker1').datetimepicker('date')));
+        $scope.dueDate = $('#datetimepicker1').datetimepicker('date');
+        $scope.dueDate = moment($scope.dueDate).format('DD/MM/YYYY HH:mm');;
         if (!$scope.title || !$scope.details || !$scope.dueDate || !$scope.voteOptions) {
             alert("All form fields are mandatory!!");
-        }
-        if ($scope.dueDate <= new Date()) {
+        } else if ($scope.dueDate <= new Date()) {
             alert("DueDate can't be in the past");
+        } else {
+
+            var currentUser = userSrv.getActiveUser();
+            upforvoteSrv.addUpForVote(currentUser.id, $scope.title, $scope.details, $scope.voteOptions, $scope.dueDate).then(function (upforvote) {
+                alert("UpForVote was added successfully");
+                document.getElementById("newVoteForm").reset();
+                // $('#new-vote').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+
+            }, function (error) {
+                // failed addding upForVote
+                alert(error);
+            })
         }
-
-        var currentUser = userSrv.getActiveUser();
-        upforvoteSrv.addUpForVote(currentUser.id, $scope.title, $scope.details, $scope.voteOptions, $scope.dueDate).then(function (upforvote) {
-            alert("UpForVote was added successfully");
-            document.getElementById("newVoteForm").reset();
-            $('#new-vote').modal('hide');
-            $('body').removeClass('modal-open');
-            $('.modal-backdrop').remove();
-
-        }, function (error) {
-            // failed addding upForVote
-            alert(error);
-        })
     }
 
     $scope.editDueDate = function (upforvote) {

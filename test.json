@@ -1,0 +1,18 @@
+{"id":1,"details":"Thank you for the warm welcome","createDate":"21.11.2018, 18:20:00","userId":2,"messageId":1,"$$hashKey":"object:26"},
+{"id":2,"details":"This is comment 2 by userId 2 on message 3","createDate":"4.12.2018, 15:30:00","userId":2,"messageId":3,"$$hashKey":"object:28"},
+{"id":3,"details":"This is comment 3 by userId 1 on message 3","createDate":"4.12.2018, 16:30:00","userId":1,"messageId":3,"$$hashKey":"object:29"},
+{"id":4,"details":"Welcome onboard","createDate":"4.11.2018, 16:30:00","userId":3,"messageId":4,"$$hashKey":"object:32"},
+{"id":5,"details":"I agree, and should be urgent","createDate":"5.11.2018, 16:30:00","userId":2,"messageId":null},
+{"id":6,"details":"can you add a picture? I could not see the issue","createDate":"20.12.2018, 20:30:00","userId":3,"messageId":null}]
+
+{"id":2,"details":"This is comment 2 by userId 2 on message 3","createDate":"4.12.2018, 15:30:00","userId":2,"messageId":3,"$$hashKey":"object:17"},
+{"id":3,"details":"This is comment 3 by userId 1 on message 3","createDate":"4.12.2018, 16:30:00","userId":1,"messageId":3,"$$hashKey":"object:18"},
+{"id":4,"details":"Welcome onboard","createDate":"4.11.2018, 16:30:00","userId":3,"messageId":4,"$$hashKey":"object:21"},
+{"id":6,"details":"can you add a picture? I could not see the issue","createDate":"20.12.2018, 20:30:00","userId":3,"messageId":null}]
+
+
+
+{"id":1,"subject":"Welcome","details":"Welcome to the Community Manager application","createDate":"21.11.2018, 10:00:00","priority":false,"userId":1,"$$hashKey":"object:7"},
+{"id":2,"subject":"Message 2","details":"This is message 2 by userId 1","createDate":"22.11.2018, 15:21:00","priority":false,"userId":1,"$$hashKey":"object:8"},
+{"id":3,"subject":"Parking","details":"I ask everyone to leave the handicap parking spot free for handicaps","createDate":"4.12.2018, 12:45:00","priority":true,"userId":2,"$$hashKey":"object:9"},
+{"id":4,"subject":"Tali is here","details":"hello from tali","createDate":"4.11.2018, 12:45:00","priority":true,"userId":4,"$$hashKey":"object:10"}]

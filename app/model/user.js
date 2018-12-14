@@ -130,6 +130,21 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         return async.promise;
     }
 
+    function DeleteUser(user) {
+        var async = $q.defer();
+        userIndex = users.indexOf(user);
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", deleteUser).then.....
+
+
+
+        users.splice(userIndex,1)  ;      
+   
+        async.resolve("Tenant Deleted Successfully");
+
+        return async.promise;
+    }
 
     function getUser(userId) {
         for (var i in users) {
@@ -153,6 +168,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         isCommittee: isCommittee,
         logout: logout,
         getActiveUser: getActiveUser,
+        DeleteUser: DeleteUser,
         getUser: getUser,
         getUsers: getUsers,
         addUser: addUser,

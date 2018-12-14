@@ -1,11 +1,10 @@
-html, body {
-    height:100%;
-}
-
 body {
-    background-image: url("/images/apartment-house.jpg");
-    background-repeat: no-repeat;
-    background-size: auto 100%;
+    background: url("/images/apartment-house.jpg") no-repeat center center fixed; 
+    /* background-repeat: no-repeat; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
     /* object-fit: contain; */
     color: lime;
     background-position: left top;
@@ -50,8 +49,7 @@ body {
 
 
 .row.dashboard {
-    height: 500px;
-    max-height: 500px;
+    height: 50vh;
 }
 
 .box {
@@ -104,3 +102,8 @@ button, .round, .round:hover{
 }
 
   /* Accordion Block End */
+
+  /* datetime picker */
+  .timepeaker {
+      height: 30px;
+  }

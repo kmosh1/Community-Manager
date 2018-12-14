@@ -32,15 +32,15 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         } else {
             messages = [];
             var getMessagesURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/messages";
-            
-            $http.get(getMessagesURL).then(function(response) {
+
+            $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var message = new Message(response.data[i]);
                     messages.push(message);
                 }
                 messageLoaded = true;
                 async.resolve(messages);
-            }, function(error) {
+            }, function (error) {
                 async.reject(error);
             });
         }
@@ -54,8 +54,10 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
 
         var userId = userSrv.getActiveUser().id;
 
-        var newMessage = new Message({id:messages[messages.length - 1].id + 1, subject: subject, details: details,
-            createDate: new Date().toLocaleString(), priority: priority, userId: userId});
+        var newMessage = new Message({
+            id: messages[messages.length - 1].id + 1, subject: subject, details: details,
+            createDate: new Date().toLocaleString(), priority: priority, userId: userId
+        });
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....
@@ -76,15 +78,16 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         } else {
             comments = [];
             var getCommentsURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/comments";
-            
-            $http.get(getCommentsURL).then(function(response) {
+
+            $http.get(getCommentsURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
                     var newComment = new Comment(response.data[i]);
                     comments.push(newComment);
+
                 }
                 commentLoaded = true;
                 async.resolve(comments);
-            }, function(error) {
+            }, function (error) {
                 async.reject(error);
             });
         }
@@ -93,13 +96,15 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
     }
 
 
-    function addComment(details,messageId) {
+    function addComment(details, messageId) {
         var async = $q.defer();
 
         var userId = userSrv.getActiveUser().id;
 
-        var newComment = new Comment({id:comments[comments.length - 1].id + 1, details: details,
-            createDate: new Date().toLocaleString(), userId: userId, messageId: messageId});
+        var newComment = new Comment({
+            id: comments[comments.length - 1].id + 1, details: details,
+            createDate: new Date().toLocaleString(), userId: userId, messageId: messageId
+        });
 
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
@@ -110,11 +115,64 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         return async.promise;
     }
 
+    function deleteMessage(message) {
+        var async = $q.defer();
+        var index = messages.indexOf(message);
+
+
+        for (var i = 0; i < comments.length; i++) {
+            if (comments[i].messageId === message.id) {
+                deleteComment(comments[i]);
+                i = -1;
+            }
+        }
+        messages.splice(index, 1);
+        async.resolve("Message deleted successfully");
+        return async.promise;
+    }
+
+    function deleteComment(comment) {
+        var async = $q.defer();
+        var index = comments.indexOf(comment);
+        comments.splice(index, 1);
+        async.resolve("Comment deleted successfully");
+        return async.promise;
+    }
+
+    function deletedAllMsgsCmntsByUserId(userId) {
+        var async = $q.defer();
+        // delete all user comments
+        console.log("comments before deleting comments: " + JSON.stringify(comments))
+        for (var i = 0; i < comments.length; i++) {
+            if (comments[i].userId === userId) {
+                deleteComment(comments[i]);
+                i = -1;
+            }
+        }
+        console.log("comments after deleting comments: " + JSON.stringify(comments))
+        console.log("messages before deleting messages: " + JSON.stringify(messages))
+        //delete all user messages 
+        for (var i = 0; i < messages.length; i++) {
+            if (messages[i].userId === userId) {
+                deleteMessage(messages[i]);
+                i = -1;
+            }
+        }
+        console.log("messages after deleting messages: " + JSON.stringify(messages))
+        console.log("comments after deleting messages: " + JSON.stringify(comments))
+        async.resolve();
+        return async.promise;
+    }
+
+
     return {
         getMessages: getMessages,
         createMessage: createMessage,
         getComments: getComments,
-        addComment: addComment
+        addComment: addComment,
+        deleteMessage: deleteMessage,
+        deleteComment: deleteComment,
+        deletedAllMsgsCmntsByUserId: deletedAllMsgsCmntsByUserId
     }
 
 })

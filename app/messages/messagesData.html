@@ -7,12 +7,17 @@
 
                     <button type="button" class="collapsed btn btn-warning round w-100" data-toggle="collapse"
                         data-target="#messageCollapse{{message.id}}">
-                        <span class="col-8 float-left posted">posted by: {{getUserName(message.userId)}} on:
+                        <span class="col-8 float-left posted">posted by: {{getUserName(message.userId)}}
+                            on:
                             {{message.createDate}}<br>
                             <h5>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h5>
                         </span>
-                        <span class="col-2 mx-auto"><label type="button" class="btn btn-danger round" ng-click="deleteMsg(message.id)">Delete</label></span>
-                        <span class="col-2 mx-auto float-right"><i class="fas fa-arrow-up    "></i></span>
+                        <span class="col-1 text-center float-right"><i class="fas fa-arrow-up    "></i></span>
+                        <span class="col-1 text-center float-right"><label ng-show="messagesURL() && msgOwner(message)"
+                                type="button" class="btn btn-primary round m-0 p-0" data-toggle="modal"
+                                data-target="#edit-msg" ng-click="editMsg(message)"> Edit  </label></span>
+                        <span class="col-1 text-center float-right"><label ng-show="messagesURL() && msgOwner(message)"
+                                type="button" class="btn btn-danger round m-0 p-0" ng-click="delMessage(message)">Delete</label></span>
                     </button>
                 </div>
                 <div id="messageCollapse{{message.id}}" class="collapse col-11 mx-auto" data-parent="#msgAccordion">
@@ -20,9 +25,12 @@
                         <p>Details: {{message.details}}</p>
                         <h6>Comments:</h6>
                         <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
-                            <span class="posted mx-auto">posted by: {{getUserName(comment.userId)}} on: {{comment.createDate}}<br>
+                            <span class="col-9 float-left posted text-center">posted by:
+                                {{getUserName(comment.userId)}} on: {{comment.createDate}}<br>
                                 <h6>{{comment.details}}</h6>
                             </span>
+                            <span class="col-2 text-center"><label ng-show="messagesURL() && cmntOwner(comment)" type="button"
+                                    class="btn btn-sm btn-danger round" ng-click="delComment(comment)">Delete</label></span>
                         </div>
                         <button type="button" class="btn-check-login col-6 mx-auto bg-info" ng-click="addComment(newComment,message.id)">ADD
                             COMMENT</button>
