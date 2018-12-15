@@ -4,6 +4,7 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
     $scope.passedDueDate = [];
     $scope.dueDate2Days = [];
     $scope.editedDueDate = {};
+ 
     // $scope.dueDate = "";
 
     $(function () {
@@ -20,6 +21,7 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
 
     upforvoteSrv.getUpForVotes().then(function (upforvotes) {
         $scope.upforvotes = upforvotes;
+        $scope.pendingVoteCount = $scope.upforvotes.length;
     }, function (error) {
 
     })
@@ -56,6 +58,7 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
             $scope.hasVoted[upforvote.id] = true;
             return [upforvote.votes[voteIndex], voteIndex];
         } else {
+            $scope.pendingVoteCount ++;
             $scope.hasVoted[upforvote.id] = false;
             return [false, voteIndex];
         }
