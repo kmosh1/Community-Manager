@@ -6,7 +6,9 @@
             "details": "Welcome to the Community Manager application",
             "createDate": "21/11/2018 10:00",
             "priority": false,
-            "userId": 1
+            "userId": 1,
+            "viewed" : [1]
+
         },
         {
             "id": 2,
@@ -14,7 +16,8 @@
             "details": "This is message 2 by userId 1",
             "createDate": "22/11/2018 15:21",
             "priority": false,
-            "userId": 1
+            "userId": 1,
+            "viewed" : [1]
         },
         {
             "id": 3,
@@ -22,7 +25,8 @@
             "details": "I ask everyone to leave the handicap parking spot free for handicaps",
             "createDate": "04/12/2018 12:45",
             "priority": true,
-            "userId": 2
+            "userId": 2,
+            "viewed" : [2]
         },
         {
             "id": 4,
@@ -30,7 +34,8 @@
             "details": "hello from tali",
             "createDate": "04/11/2018 12:45",
             "priority": true,
-            "userId": 4
+            "userId": 4,
+            "viewed" : [4]
         }
     ],
     "comments": [
