@@ -1,8 +1,8 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 
 
-<h1 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote ({{pendingVoteCount}})</h1>
-
+<h1 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote <span class="text-danger" ng-show="pendingVoteCount()">({{pendingVoteCount()}})</span></h1>
+<!-- <span class="text-danger" ng-show="pendingVoteCount()">({{pendingVoteCount()}})</span> -->
 <div class="col-10 text-center mx-auto">
     <h5>
         <label class="col-3"><i class="fas fa-check-circle text-success"></i>you have voted</label>
@@ -16,7 +16,7 @@
 <upforvote-view></upforvote-view>
 
 <!-- The Modal -->
-<div class="modal fade seminor-login-modal" data-backdrop="static" id="new-vote">
+<div class="modal fade modal-sm mx-auto" data-backdrop="static" id="new-vote">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 

@@ -1,17 +1,17 @@
 CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv, userSrv) {
 
-    $scope.hasVoted = [];
-    $scope.passedDueDate = [];
-    $scope.dueDate2Days = [];
+    $scope.hasVoted = {};
+    $scope.passedDueDate = {};
+    $scope.dueDate2Days = {};
     $scope.editedDueDate = {};
- 
+
     // $scope.dueDate = "";
 
     $(function () {
         $('#datetimepicker1').datetimepicker({
             //  inline: true,
             //  sideBySide: true,
-            minDate: new Date(),
+            date: new Date(),
             format: 'DD/MM/YYYY HH:mm'
 
         });
@@ -21,7 +21,6 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
 
     upforvoteSrv.getUpForVotes().then(function (upforvotes) {
         $scope.upforvotes = upforvotes;
-        $scope.pendingVoteCount = $scope.upforvotes.length;
     }, function (error) {
 
     })
@@ -51,17 +50,30 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
     }
 
     $scope.checkVoted = function (upforvote) {
+
         var currentUser = userSrv.getActiveUser();
         var userVotedString = "apartment" + currentUser.appartment;
         var voteIndex = upforvote.voted.indexOf(userVotedString);
         if (voteIndex != -1) {
             $scope.hasVoted[upforvote.id] = true;
+            console.log(JSON.stringify($scope.hasVoted));
             return [upforvote.votes[voteIndex], voteIndex];
         } else {
-            $scope.pendingVoteCount ++;
             $scope.hasVoted[upforvote.id] = false;
+            console.log(JSON.stringify($scope.hasVoted));
             return [false, voteIndex];
         }
+    }
+
+    $scope.pendingVoteCount = function () {
+        var count = 0;
+            for (var i in $scope.hasVoted) {
+                console.log("pending " + JSON.stringify($scope.hasVoted[i]));
+                if (!$scope.hasVoted[i] && !$scope.passedDueDate[i]) {
+                    count++;
+                }
+            }
+        return count;
     }
 
     $scope.checkDueDate = function (upforvote) {

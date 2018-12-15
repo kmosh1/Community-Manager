@@ -5,7 +5,7 @@
 
 <div class="container mt-5">
     <div id="tnntAccordion" class="accordion">
-        <div class="row" ng-repeat="user in users "> <!--| filter: filterUsers--> 
+        <div class="row" ng-repeat="user in users | filter: filterUsers"> <!--| filter: filterUsers--> 
             <div class="card card-transparent col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{user.id}}">
                     <button type="button" class="collapsed btn btn-warning round w-100" data-toggle="collapse" data-target="#tnntCollapse{{user.id}}">
@@ -22,8 +22,8 @@
                             <span>Phone: {{user.phone}}</span><br>
                             <span class="mx-auto">is Committee member: {{user.isCommittee}} </span><br>
                             <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#edit-tnnt"
-                                ng-click="editTnnt(user)">EDIT</button>
-                            <button type="button" class="btn btn-primary float-right" ng-click="DeleteUser(user)">DELETE</button>
+                                ng-click="editTnnt(user)"><i class="fas fa-user-edit"></i></button>
+                            <button type="button" class="btn btn-primary float-right" ng-click="DeleteUser(user)"><i class="fas fa-user-times"></i></button>
                         </label>
                         <label class="col-4 float-right">
                             <img class="img-thumbnail rounded-circle user-img" src="{{user.image}}">
@@ -49,7 +49,7 @@
                 <form id="tnntForm" class="text">
                     <div class="row m-2">
                         <div class="form-group col-4 px-2 m-0">
-                            <span><img class="label-icon" src="/images/user.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/user.gif"></span>
                             <label class="form-control-placeholder" for="fname"> First Name</label>
                             <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
                         </div>
@@ -66,7 +66,7 @@
 
                     <div class="row m-2">
                         <div class="form-group col-6 px-2 m-0">
-                            <span><img class="label-icon" src="/images/file.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/file.gif"></span>
                             <label class="form-control-placeholder" for="tnntImage"> Add picture?</label>
                             <input type="file" name="myImage" image-with-preview ng-model="myImage" accept="image/jpeg,image/png">
                         </div>
@@ -76,12 +76,12 @@
                     </div>
                     <div class="row m-2">
                         <div class="form-group col-5 px-2 m-0">
-                            <span><img class="label-icon" src="/images/email.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/email.gif"></span>
                             <label class="form-control-placeholder" for="email"> Email address</label>
                             <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                         </div>
                         <div class="form-group col-5 px-2 m-0">
-                            <span><img class="label-icon" src="/images/phone.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/phone.gif"></span>
                             <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
                             <input type="phonenumber" class="form-control" required autocomplete="off" ng-model="phone">
                         </div>
@@ -97,12 +97,12 @@
                     </div>
                     <div class="row ml-2">
                         <div class="form-group px-2 col-5">
-                            <span><img class="label-icon" src="/images/password1.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/password1.gif"></span>
                             <label class="form-control-placeholder" for="password"> Password</label>
                             <input type="password" class="form-control" required autocomplete="off" ng-model="pwd1">
                         </div>
                         <div class="form-group px-2 col-5">
-                            <span><img class="label-icon" src="/images/password.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/password.gif"></span>
                             <label class="form-control-placeholder" for="password"> Confirm Password</label>
                             <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                         </div>
@@ -148,7 +148,7 @@
 
                     <div class="row m-2">
                         <div class="form-group col-6 px-2 m-0">
-                            <span><img class="label-icon" src="/images/file.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/file.gif"></span>
                             <label class="form-control-placeholder" for="tnntImage"> Add picture?</label>
                             <input type="file" name="myImage" image-with-preview ng-model="myImage" accept="image/jpeg,image/png">
                         </div>
@@ -159,12 +159,12 @@
                     </div>
                     <div class="row m-2">
                         <div class="form-group col-5 px-2 m-0">
-                            <span><img class="label-icon" src="/images/email.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/email.gif"></span>
                             <label class="form-control-placeholder" for="email"> Email address</label>
                             <input type="email" class="form-control" name="email" autocomplete="off" ng-model="editedUser.email">
                         </div>
                         <div class="form-group col-5 px-2 m-0">
-                            <span><img class="label-icon" src="/images/phone.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/phone.gif"></span>
                             <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
                             <input type="phonenumber" class="form-control" name="phone" autocomplete="off" ng-model="editedUser.phone">
                         </div>
@@ -180,12 +180,12 @@
                     </div>
                     <div class="row ml-2">
                         <div class="form-group px-2 col-5">
-                            <span><img class="label-icon" src="/images/password1.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/password1.gif"></span>
                             <label class="form-control-placeholder" for="password"> Password</label>
                             <input type="password" class="form-control" name="pwd" autocomplete="off" ng-model="pwd1">
                         </div>
                         <div class="form-group px-2 col-5">
-                            <span><img class="label-icon" src="/images/password.gif"></span>
+                            <span><img class="label-icon round nobg" src="/images/password.gif"></span>
                             <label class="form-control-placeholder" for="password"> Confirm Password</label>
                             <input type="password" class="form-control" name="pwd" autocomplete="off" ng-model="pwd2">
                         </div>

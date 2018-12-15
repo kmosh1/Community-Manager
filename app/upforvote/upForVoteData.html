@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div id="accordion" class="accordion">
-        <div class="row" ng-repeat="upforvote in upforvotes ">
+        <div class="row" ng-repeat="upforvote in upforvotes | filter: filterUpforvotes">
             <!--| filter: filterUpforvotes-->
             <div class="card col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{upforvote.id}}">
@@ -13,8 +13,6 @@
                             </span>
                             <span class="col-1 float-left">
                                 <label ng-show="dueDate2Days[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-exclamation-circle text-danger"></i></label>
-                            </span>
-                            <span class="col-1 float-left">
                                 <label ng-show="passedDueDate[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-minus-circle text-primary"></i></label>
                             </span>
                             <span class="col-7 float-left m-0 p-0 text-left">{{upforvote.title}}</span><span class="col-1 mx-auto float-right"><i
@@ -24,33 +22,34 @@
                 </div>
                 <div id="upforvoteCollapse{{upforvote.id}}" class="collapse col-10 mx-auto" data-parent="#accordion">
                     <div class="card-block mt-2">
-
-                        <p>{{upforvote.details}}
-                            <br>
+                        <article>{{upforvote.details}}
                             <div ng-show="upforvoteURL()">
-                                <p ng-show="hasVoted[{{upforvote.id}}]"> You already voted
-                                    {{checkVoted(upforvote)[0]}}</p>
-                                <span class="mx-auto">
-                                    <div class="col-6 float-left" ng-hide="{{checkDueDate(upforvote)[1]}}">Vote options:
-                                    <select ng-model="vote">
-                                        <option value="{{option.vote}}" ng-repeat="option in upforvote.options track by $index">
-                                            {{option.vote}}
-                                        </option>
-                                    </select>
-                                    <button type="button" class="btn btn-info" ng-click="castVote(upforvote,vote)">Cast
-                                        Vote</button>
-                                    </div>
-                                        <button type="button" class="btn btn-info col-5 float-right" data-toggle="modal" data-target="#new-dueDate"
-                                        ng-click="editDueDate(upforvote)">
-                                        <span ng-show="isUserCommittee()" class="posted">Committe can click to change</span><br>
-                                        DueDate: {{upforvote.dueDate}}</button>
+                                <div class="col-6 float-left">
+                                    <h6> Your vote: <span ng-show="hasVoted[{{upforvote.id}}]">
+                                            {{checkVoted(upforvote)[0]}}</span></h6>
+                                    <span class="mx-auto">
+                                        <h6 ng-hide="{{checkDueDate(upforvote)[1]}}">options:
+                                            <select ng-model="vote">
+                                                <option value="{{option.vote}}" ng-repeat="option in upforvote.options track by $index">
+                                                    {{option.vote}}
+                                                </option>
+                                            </select>
+                                            <button type="button" class="btn btn-info btn-sm" ng-click="castVote(upforvote,vote)">Cast
+                                                Vote</button>
+                                        </h6>
+                                    </span>
+                                </div>
+                                <button type="button" class="btn btn-info col-6 float-right p-0 m-0" data-toggle="modal"
+                                    data-target="#new-dueDate" ng-click="editDueDate(upforvote)">
+                                    <span ng-show="isUserCommittee()" class="posted">Committe can click to change</span><br>
+                                    DueDate: {{upforvote.dueDate}}</button>
                                 </span>
                             </div>
                             <div ng-hide="upforvoteURL()">
                                 <p>DueDate: {{upforvote.dueDate}}</p>
                                 <p>Go to Up-For-Vote page for voting</p>
                             </div>
-                        </p>
+                        </article>
                         <br>
                     </div>
                 </div>

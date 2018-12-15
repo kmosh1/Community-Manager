@@ -1,14 +1,15 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 
-<h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages</h1>
-<a class="btn btn-primary btn-lg" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg">NEW MESSAGE </a>
-<div class="col-10 text-center mx-auto">
-        <h5>
-            <label class="col-3"><i class="fas fa-check-circle text-success"></i>you have voted</label>
-            <label class="col-5"><i class="fas fa-exclamation-circle text-danger"></i>less than 2 days to DueDate</label>
-            <label class="col-3"><i class="fas fa-minus-circle text-primary"></i>Voting ended</label>
-        </h5>
+<h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-danger" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h1>
+<div class="col-8 text-center mx-auto">
+        <h6>
+            <label class="col-3"><i class="fas fa-envelope text-success"></i>New message</label>
+            <label class="col-5"><i class="fas fa-exclamation-circle text-danger"></i>Important message</label>
+            <label class="col-3"><i class="fas fa-info-circle text-info"></i>Info message</label>
+        </h6>
+        <a class="btn btn-warning round col-10" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg"> ADD A NEW MESSAGE<i class="fas fa-pen-alt"></i></a>
     </div>
+
 <messages-view></messages-view>
 
 <!-- The Modal -->

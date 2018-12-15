@@ -58,6 +58,13 @@ body {
     overflow-wrap: break-word;
 }
 
+.box::-webkit-scrollbar {
+    display: none;
+   }
+body::-webkit-scrollbar {
+    display: none;
+   }
+
 .user-img {
   width: 150px;
   height: 150px;

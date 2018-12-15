@@ -1,23 +1,32 @@
 <div class="container mt-5">
     <div id="msgAccordion" class="accordion">
-        <div class="row" ng-repeat="message in messages">
+        <div class="row" ng-repeat="message in messages | filter: filterMessages">
             <!--| filter: filterMessages-->
             <div class="card card-transparent col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{message.id}}">
 
-                    <button type="button" class="collapsed btn btn-warning round w-100" data-toggle="collapse"
-                        data-target="#messageCollapse{{message.id}}">
-                        <span class="col-8 float-left posted">posted by: {{getUserName(message.userId)}}
-                            on:
-                            {{message.createDate}}<br>
+                    <button type="button" class="collapsed btn btn-warning round w-100 p-0" data-toggle="collapse"
+                        data-target="#messageCollapse{{message.id}}" ng-click="msgViewed(message)">
+                        <h6 class="col-2 float-left">
+                                <span class="col-3 text-center float-left">
+                                    <label ng-show="notViewed(message)" class="m-0 p-0"><i class="fa fa-envelope text-success"></i></i></label>
+                                </span>
+                                <span class="col-3 text-center float-left">
+                                    <label ng-show="{{message.priority}}" class=" m-0 p-0"><i class="fa fa-exclamation-circle text-danger"></i></label>
+                                <!-- </span>
+                                <span class="col-4 float-left"> -->
+                                    <label ng-show="{{!message.priority}}" class="m-0 p-0"><i class="fa fa-info-circle text-primary"></i></label>
+                                </span>
+                            </h6>
+                            <span class="col-7 float-left posted">posted by: {{getUserName(message.userId)}}
+                            on: {{message.createDate}}<br>
                             <h5>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h5>
                         </span>
-                        <span class="col-1 text-center float-right"><i class="fas fa-arrow-up    "></i></span>
-                        <span class="col-1 text-center float-right"><label ng-show="messagesURL() && msgOwner(message)"
-                                type="button" class="btn btn-primary round m-0 p-0" data-toggle="modal"
-                                data-target="#edit-msg" ng-click="editMsg(message)"> Edit  </label></span>
-                        <span class="col-1 text-center float-right"><label ng-show="messagesURL() && msgOwner(message)"
-                                type="button" class="btn btn-danger round m-0 p-0" ng-click="delMessage(message)">Delete</label></span>
+                        <h4 class="col-1 text-center alight-center float-right"><i class="fas fa-arrow-up    "></i></h4>
+                        <h4 class="col-1 text-center text-primary float-right" ng-show="messagesURL() && msgOwner(message)"
+                            data-toggle="modal" data-target="#edit-msg" ng-click="editMsg(message)"><i class="fa fa-edit"></i></h4>
+                        <h4 class="col-1 text-center text-danger float-right" ng-show="messagesURL() && msgOwner(message)"
+                            ng-click="delMessage(message)"><i class="fa fa-trash"></i></h4>
                     </button>
                 </div>
                 <div id="messageCollapse{{message.id}}" class="collapse col-11 mx-auto" data-parent="#msgAccordion">
@@ -29,8 +38,8 @@
                                 {{getUserName(comment.userId)}} on: {{comment.createDate}}<br>
                                 <h6>{{comment.details}}</h6>
                             </span>
-                            <span class="col-2 text-center"><label ng-show="messagesURL() && cmntOwner(comment)" type="button"
-                                    class="btn btn-sm btn-danger round" ng-click="delComment(comment)">Delete</label></span>
+                            <h3 class="col-2 text-center text-danger mt-2 float-right" ng-show="messagesURL() && cmntOwner(comment)"
+                                ng-click="delComment(comment)"><i class="fa fa-trash"></i></h3>
                         </div>
                         <button type="button" class="btn-check-login col-6 mx-auto bg-info" ng-click="addComment(newComment,message.id)">ADD
                             COMMENT</button>

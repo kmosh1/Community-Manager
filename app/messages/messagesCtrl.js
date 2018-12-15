@@ -1,6 +1,7 @@
 CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, userSrv) {
 
     $scope.editedMessage = {};
+    $scope.msgViewed = {};
 
     messages.getMessages().then(function (messages) {
         $scope.messages = messages;
@@ -29,9 +30,9 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         $scope.editedMessage = {};
- 
+
     }
-   
+
 
     $scope.addComment = function (details, messageId) {
         messages.addComment(details, messageId);
@@ -50,7 +51,7 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
         else {
             return;
         }
-    } 
+    }
 
     $scope.delComment = function (comment) {
         if (confirm("Are you sure you want to delete this comment? ")) {
@@ -64,7 +65,7 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
         else {
             return;
         }
-    }   
+    }
 
     $scope.getUserName = function (userId) {
         var tmpUser = userSrv.getUser(userId);
@@ -94,6 +95,31 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
         }
     }
 
+    $scope.notViewed = function (message) {
+        var currentUser = userSrv.getActiveUser();
+        var viewIndex = message.viewed.indexOf(currentUser.id);
+        if (viewIndex != -1) {
+            $scope.msgViewed[message.id] = true;
+            console.log(JSON.stringify($scope.msgViewed));
+            return false;
+        } else {
+            $scope.msgViewed[message.id] = false;
+            console.log(JSON.stringify($scope.msgViewed));
+            return true;
+        }
+    }
+
+    $scope.newMsgsCount = function () {
+        var count = 0;
+        for (var i in $scope.msgViewed) {
+            console.log(i + " :" + JSON.stringify($scope.msgViewed[i]));
+            if (!$scope.msgViewed[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     $scope.cmntOwner = function (commemt) {
         var currentUser = userSrv.getActiveUser();
         if (currentUser.id === commemt.userId || currentUser.isCommittee === "Yes") {
@@ -102,4 +128,17 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
             return false;
         }
     }
+
+    $scope.msgViewed = function (message) {
+        messages.msgViewed(message).then(function (success) {
+            console.log(success);
+
+        }, function (error) {
+            // failed updating message viewed
+            alert(error);
+        })
+    }
+
+
+
 })

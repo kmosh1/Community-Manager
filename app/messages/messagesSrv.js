@@ -12,6 +12,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         this.createDate = new Date(plainMessage.createDate).toLocaleString();
         this.priority = plainMessage.priority;
         this.userId = plainMessage.userId;
+        this.viewed = plainMessage.viewed;
     }
 
     function Comment(plainComment) {
@@ -56,7 +57,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
 
         var newMessage = new Message({
             id: messages[messages.length - 1].id + 1, subject: subject, details: details,
-            createDate: new Date().toLocaleString(), priority: priority, userId: userId
+            createDate: new Date().toLocaleString(), priority: priority, userId: userId, viewed: [userId] 
         });
 
         // if working with real server:
@@ -164,6 +165,17 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         return async.promise;
     }
 
+    function msgViewed(message) {
+        var async = $q.defer();
+        var userId = userSrv.getActiveUser().id;
+        if (message.viewed.indexOf(userId) != -1) {
+            async.resolve("This user already viewed this message");
+        } else {
+            message.viewed.push(userId);
+            async.resolve("Updated message was viewed by this user")
+        }
+        return async.promise;
+    }
 
     return {
         getMessages: getMessages,
@@ -172,7 +184,8 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         addComment: addComment,
         deleteMessage: deleteMessage,
         deleteComment: deleteComment,
-        deletedAllMsgsCmntsByUserId: deletedAllMsgsCmntsByUserId
+        deletedAllMsgsCmntsByUserId: deletedAllMsgsCmntsByUserId,
+        msgViewed: msgViewed
     }
 
 })
