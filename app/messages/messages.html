@@ -2,7 +2,7 @@
 
 <h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-warning" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h1>
 <div class="col-10 text-center mx-auto">
-        <a class="btn btn-warning round col-8" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg"> ADD A NEW MESSAGE<i class="fas fa-pen-alt"></i></a>
+        <a class="btn btn-dark round col-8 opacity" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg"> ADD A NEW MESSAGE<i class="fas fa-pen-alt"></i></a>
     </div>
 
 <messages-view></messages-view>
@@ -16,7 +16,7 @@
             <div class="modal-body seminor-login-modal-body">
                 <h5 class="modal-title text-center">ADD A NEW MESSAGE
                     <button type="button" class="close" data-dismiss="modal">
-                        <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                        <span><i class="fa fa-times-circle text-info" aria-hidden="true"></i></span>
                     </button>
                 </h5>
                 <form>
@@ -54,7 +54,7 @@
                 <div class="modal-body seminor-login-modal-body">
                     <h5 class="modal-title text-center">EDIT MESSAGE
                         <button type="button" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                            <span><i class="fa fa-times-circle text-info" aria-hidden="true"></i></span>
                         </button>
                     </h5>
                     <form id="editMsgForm">
