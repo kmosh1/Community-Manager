@@ -11,9 +11,9 @@
         <a class="btn btn-dark btn-lg" href="#" data-toggle="modal" data-target="#sem-reg">Register </a>
         <h6 class="posted float-right">
             <label> 1st community: committee - mk@mk.com 1234<br>
-             1st community: tenant - amir@amir.com 1234<br>
-             2nd community: committee - david@david.com 1234<br>
-             2nd community: tenant - tali@tali.com 1234</label>
+                1st community: tenant - amir@amir.com 1234<br>
+                2nd community: committee - david@david.com 1234<br>
+                2nd community: tenant - tali@tali.com 1234</label>
         </h6>
     </div>
 
@@ -26,25 +26,25 @@
                 <div class="modal-body">
                     <h5 class="modal-title text-center">CREATE AN ACCOUNT
                         <button type="button" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle text-info"></i></span>
+                            <span><i class="fas fa-times-circle text-info"></i></span>
                         </button>
                     </h5>
                     <br>
                     <form id="RegForm" class="text">
                         <div class="row m-2">
-                            <div class="form-group col-4 px-2 m-0">
+                            <div class="form-group col-5 px-2 m-0">
                                 <span><img class="label-icon round nobg" src="/images/user.gif"></span>
                                 <label class="form-control-placeholder" for="fname"> First Name</label>
                                 <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
                             </div>
-                            <div class="form-group col-4 px-2 m-0">
+                            <div class="form-group col-5 px-2 m-0">
                                 <label class="form-control-placeholder" for="lname"> Last Name</label>
                                 <input type="name" class="form-control" required autocomplete="off" ng-model="lname">
                             </div>
-                            <div class="form-group col-2 px-2 mx-auto">
+                            <!-- <div class="form-group col-2 px-2 mx-auto">
                                 <label class="form-control-placeholder" for="apprtmntgNum"> appartment</label>
                                 <input type="text" class="form-control" required autocomplete="off" ng-model="apprtmntgNum">
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -58,26 +58,26 @@
                                 <img class="img-thumbnail rounded-circle user-img" ng-src="{{myImage.src}}" src="images/users.gif" />
                             </div>
                         </div>
-                        <div class="row m-2">
-                            <div class="form-group col-5 px-2 m-0">
+                        <div class="row ml-2">
+                            <div class="form-group col-5 px-2">
                                 <span><img class="label-icon round nobg" src="/images/email.gif"></span>
                                 <label class="form-control-placeholder" for="email"> Email address</label>
                                 <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                             </div>
-                            <div class="form-group col-5 px-2 m-0">
+                            <div class="form-group col-5 px-2">
                                 <span><img class="label-icon round nobg" src="/images/phone.gif"></span>
                                 <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
                                 <input type="phonenumber" class="form-control" required autocomplete="off" ng-model="phone">
                             </div>
-                            <div class="form-group col-2 px-0 mx-auto">
+                            <!-- <div class="form-group col-2 px-0 mx-auto">
                                 <div class="form-group">
                                     <label class="form-control-placeholder" for="isCommittee"> Committee?</label>
-                                    <select type="text" class="form-control" required autocomplete="off" ng-model="isCommittee">
-                                        <option>No</option>
+                                    <select type="text" class="form-control" required autocomplete="off" ng-model="isCommittee"> -->
+                            <!-- <option>No</option>
                                         <option>Yes</option>
-                                    </select>
+                                     </select> 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row ml-2">
                             <div class="form-group px-2 col-5">
@@ -91,15 +91,17 @@
                                 <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                             </div>
                         </div>
-
-                        <address-view w-100></address-view>
-                        <div class="form-group text-center ">
+                        
+                        <div class="row m-2">
+                                <address-view></address-view>
+                        </div>
+                        <div class="form-group text-center col-10 mx-auto">
                             <a href="/terms-conditions/" class="text-secondary" target="_blank">
                                 By Clicking "SIGN UP" you accept our<br>
                                 <span class="text-primary-fau">Terms and Conditions</span>
                             </a>
                         </div>
-                        <div class="btn-check-log">
+                        <div class="text-center col-10 mx-auto">
                             <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="addUser(1)">REGISTER</button>
                         </div>
                         <div class="text-center pt-3">
@@ -120,7 +122,7 @@
                 <div class="modal-body">
                     <h5 class="modal-title text-center">LOGIN TO COMMUNITY MANAGER
                         <button type="button" id="close" class="close" data-dismiss="modal">
-                            <span><i class="fa fa-times-circle text-info"></i></span>
+                            <span><i class="fas fa-times-circle text-info"></i></span>
                         </button>
                     </h5>
                     <br>
@@ -142,7 +144,7 @@
                                 <span class="checkmark-box"></span>
                             </label>
                         </div>
-                        <div class="btn-check-log">
+                        <div class="text-center col-10 mx-auto">
                             <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="login()">LOGIN</button>
                         </div>
                         <div class="text-center pt-3">

@@ -1,44 +1,50 @@
-<div class="w-100 p-0 m-0">
-       
-        <div class="form-control-placeholder"> <span><img class="label-icon" src="/images/home.gif"></span> Address</div>
+<div class="mx-auto p-0 m-0 mb-2">
+
+    <div class="form-control-placeholder"> <span><img class="label-icon" src="/images/home.gif"></span> Address</div>
 
 
 
-    <form class="search-box w-100">
-        <input type="text" class="form-control" placeholder="בחר עיר" ng-model="cityText" ng-change="searchCity()">
-        <div class="list-group api-results">
-            <button class="list-group-item list-group-item-action list-group-item-success" ng-repeat="citySrch in searchCities track by $index"
-                ng-click="addCity(citySrch)">{{citySrch.main_text}}</button>
-        </div>
-    </form>
-    <div class="w-80">
-        <div class="col-sm-6 col-lg-3" ng-repeat="citySrch in cities track by $index">
-            <div class="row">
-                <h3>{{citySrch.main_text}} </h3>
-            </div>
-        </div>
-    </div>
     <form class="search-box">
-        <div class="w-100">
-            <input type="text" class="form-control" placeholder="בחר רחוב" ng-model="addrText" ng-change="searchAddr()">
-        </div>
-        <div class="w-50 float-left">
-            <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
-        </div>
-        <div class="w-50 float-right">
-            <input type="text" class="form-control" placeholder="מספר דירה" ng-model="apprtmntgNum">
-        </div>
-        <div class="list-group api-results">
-            <button class="list-group-item list-group-item-action" ng-repeat="addrSrch in addrResults" 
-            ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</button>
-        </div>
-    </form>
-
-    <div class="w-65">
-        <div class="col-sm-6 col-lg-3" ng-repeat="addrSrch in adresses track by $index">
-            <div class="row">
-                <h3>{{addrSrch.main_text}} </h3>
+        <div class="float-left">
+            <input type="text" class="form-control" placeholder="בחר עיר" ng-model="cityText" ng-change="searchCity()">
+            <div class="list-group api-results">
+                <button class="list-group-item list-group-item-action list-group-item-success" ng-repeat="citySrch in searchCities track by $index"
+                    ng-click="addCity(citySrch)">{{citySrch.main_text}}</button>
+            </div>
+            <div class="form-group float-right">
+                <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
+            </div>
+            <div class="mx-auto">
+                <div ng-repeat="citySrch in cities track by $index">
+                    <div class="row">
+                        <h3>{{citySrch.main_text}} </h3>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="float-right">
+            <input type="text" class="form-control" placeholder="בחר רחוב" ng-model="addrText" ng-change="searchAddr()">
+            <div class="list-group api-results">
+                <button class="list-group-item list-group-item-action list-group-item-success" ng-repeat="addrSrch in addrResults"
+                    ng-click="addAddress(addrSrch)">{{addrSrch.main_text}}</button>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="מספר דירה" ng-model="apprtmntgNum">
+            </div>
+            <div class="mx-auto">
+                <div ng-repeat="citySrch in cities track by $index">
+                    <div class="row">
+                        <h3>{{citySrch.main_text}} </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
+<!-- <div class="form-group px-2 col-4">
+    <input type="text" class="form-control" placeholder="מספר בית" ng-model="buildingNum">
+</div>
+<div class="form-group px-2 col-4">
+    <input type="text" class="form-control" placeholder="מספר דירה" ng-model="apprtmntgNum">
+</div> -->

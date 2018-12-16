@@ -97,10 +97,10 @@ body::-webkit-scrollbar {
     background-color: transparent; 
 }
 
-.card-header .fas {
+.card-header .fa-arrow-up {
   transition: .3s transform ease-in-out;
  }
-.card-header .collapsed .fas {
+.card-header .collapsed .fa-arrow-up {
   transform: rotate(-180deg);
 }
 

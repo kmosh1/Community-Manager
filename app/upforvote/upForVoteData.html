@@ -13,15 +13,15 @@
             <div class="card col-10 m-0 p-0 mx-auto border-0 nobg">
                 <div class="card-header m-0 p-0 border-0" id="heading{{upforvote.id}}">
 
-                    <button type="button" class="collapsed btn btn-dark w-100 round opacity" data-toggle="collapse"
+                    <button type="button" class="collapsed btn btn-dark w-100 round " data-toggle="collapse"
                         data-target="#upforvoteCollapse{{upforvote.id}}">
                         <h6>
                             <span class="col-1 float-left">
-                                <label ng-show="hasVoted[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-check-circle text-success"></i></label>
+                                <label ng-show="hasVoted[{{upforvote.id}}]" class="m-0 p-0"><i class="fas fa-check-circle text-success"></i></label>
                             </span>
                             <span class="col-1 float-left">
-                                <label ng-show="dueDate2Days[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-exclamation-circle text-danger"></i></label>
-                                <label ng-show="passedDueDate[{{upforvote.id}}]" class="m-0 p-0"><i class="fa fa-minus-circle text-primary"></i></label>
+                                <label ng-show="dueDate2Days[{{upforvote.id}}]" class="m-0 p-0"><i class="fas fa-exclamation-circle text-danger"></i></label>
+                                <label ng-show="passedDueDate[{{upforvote.id}}]" class="m-0 p-0"><i class="fas fa-minus-circle text-primary"></i></label>
                             </span>
                             <span class="col-7 float-left m-0 p-0 text-left">{{upforvote.title}}</span><span class="col-1 mx-auto float-right"><i
                                     class="fas fa-arrow-up    "></i></span>
@@ -76,7 +76,7 @@
             <div class="modal-body seminor-login-modal-body">
                 <h5 class="modal-title text-center">CHANGE UP-FOR-VOTE DUEDATE
                     <button type="button" class="close" data-dismiss="modal">
-                        <span><i class="fa fa-times-circle text-info" aria-hidden="true"></i></span>
+                        <span><i class="fas fa-times-circle text-info" aria-hidden="true"></i></span>
                     </button>
                 </h5>
                 <p> Previous DueDate: {{upforvote.dueDate}}</p>
@@ -90,11 +90,11 @@
                             <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                                     <input type="text" name="newDueDate" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
                                 <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="btn-check-log">
+                        <div class="text-center col-10 mx-auto">
                         <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="newUFVDueDate()">CHANGE
                             UP-FOR-VOTE DUEDATE</button>
                     </div>
