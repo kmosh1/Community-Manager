@@ -9,7 +9,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         this.id = plainMessage.id;
         this.subject = plainMessage.subject;
         this.details = plainMessage.details;
-        this.createDate = new Date(plainMessage.createDate).toLocaleString();
+        this.createDate = plainMessage.createDate;
         this.priority = plainMessage.priority;
         this.userId = plainMessage.userId;
         this.viewed = plainMessage.viewed;
@@ -18,9 +18,10 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
     function Comment(plainComment) {
         this.id = plainComment.id;
         this.details = plainComment.details;
-        this.createDate = new Date(plainComment.createDate).toLocaleString();
+        this.createDate = plainComment.createDate;
         this.userId = plainComment.userId;
         this.messageId = plainComment.messageId;
+        this.issueId = plainComment.issueId;
     }
 
     function getMessages() {
@@ -54,10 +55,12 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         var async = $q.defer();
 
         var userId = userSrv.getActiveUser().id;
+        moment.locale('he');
+        var today = moment().format('L LT');
 
         var newMessage = new Message({
             id: messages[messages.length - 1].id + 1, subject: subject, details: details,
-            createDate: new Date().toLocaleString(), priority: priority, userId: userId, viewed: [userId] 
+            createDate: today, priority: priority, userId: userId, viewed: [userId] 
         });
 
         // if working with real server:
@@ -101,10 +104,33 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         var async = $q.defer();
 
         var userId = userSrv.getActiveUser().id;
+        moment.locale('he');
+        var today = moment().format('L LT');
 
         var newComment = new Comment({
             id: comments[comments.length - 1].id + 1, details: details,
-            createDate: new Date().toLocaleString(), userId: userId, messageId: messageId
+            createDate: today, userId: userId, messageId: messageId
+        });
+
+        // if working with real server:
+        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
+
+        comments.push(newComment);
+        async.resolve(newComment);
+
+        return async.promise;
+    }
+
+    function addIssueComment(details, issueId) {
+        var async = $q.defer();
+
+        var userId = userSrv.getActiveUser().id;
+        moment.locale('he');
+        var today = moment().format('L LT');
+
+        var newComment = new Comment({
+            id: comments[comments.length - 1].id + 1, details: details,
+            createDate: today.toLocaleString(), userId: userId, issueId: issueId
         });
 
         // if working with real server:
@@ -182,6 +208,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         createMessage: createMessage,
         getComments: getComments,
         addComment: addComment,
+        addIssueComment: addIssueComment,
         deleteMessage: deleteMessage,
         deleteComment: deleteComment,
         deletedAllMsgsCmntsByUserId: deletedAllMsgsCmntsByUserId,

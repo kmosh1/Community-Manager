@@ -170,7 +170,9 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
     }
 
     $scope.isUserCommittee = function () {
-        return userSrv.isCommittee();
+        var committee = userSrv.isCommittee();
+        $('#editDueDate').prop('disabled', !committee)
+        return committee;
     }
 
 });

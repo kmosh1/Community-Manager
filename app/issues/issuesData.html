@@ -13,17 +13,25 @@
                     <div class="card-block mt-2">
                         <label>Details: {{issue.details}}</label>
                         <h6>Comments:</h6>
-                        <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {issueId:issue.id} as filtered">
+                        <!-- <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {issueId:issue.id} as filtered">
                             <label class="posted col-3">posted by: <br> {{getUserName(comment.userId)}}
                                 <br> on:
                                 {{comment.createDate}}</label>
                             <label class="col-9 float-right">{{comment.details}}</label>
+                        </div> -->
+                        <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {issueId:issue.id} as filtered">
+                            <span class="col-9 float-left posted text-center">posted by:
+                                {{getUserName(comment.userId)}} on: {{comment.createDate}}<br>
+                                <h6>{{comment.details}}</h6>
+                            </span>
+                            <h3 class="col-2 text-center text-danger mt-2 float-right" ng-show="issuesURL() && cmntOwner(comment)"
+                                ng-click="delComment(comment)"><i class="fa fa-trash"></i></h3>
                         </div>
 
-                        <button type="button" class="btn-check-login col-6 mx-auto bg-info" ng-click="addComment(newComment,issue.id)">ADD
+                        <button type="button" class="btn-check-login col-6 mx-auto bg-info" ng-click="addIssueComment(newIssueComment,issue.id)">ADD
                             COMMENT</button>
-                        <textarea class="form-control float-right" rows="2" name="comment" id="comment" placeholder="write a comment..."
-                            ng-model="newComment"></textarea>
+                        <textarea class="form-control float-right" rows="2" name="issueComment" id="issueComment" placeholder="write a comment..."
+                            ng-model="newIssueComment"></textarea>
                      </div>
                 </div>
             </div>
