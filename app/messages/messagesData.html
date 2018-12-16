@@ -1,4 +1,11 @@
-<div class="container mt-5">
+<div class="container mt-4">
+        <div class="col-12 text-center mx-auto">
+                <h6>
+                    <label class="col-3 p-0 m-0"><i class="fas fa-envelope text-success opacity round"></i> New</label>
+                    <label class="col-4 p-0 m-0"><i class="fas fa-exclamation-circle text-danger opacity round"></i> Important</label>
+                    <label class="col-3 p-0 m-0"><i class="fas fa-info-circle text-info opacity round"></i> Info</label>
+                </h6>
+            </div>
     <div id="msgAccordion" class="accordion">
         <div class="row" ng-repeat="message in messages | filter: filterMessages">
             <!--| filter: filterMessages-->
@@ -13,14 +20,12 @@
                                 </span>
                                 <span class="col-3 text-center float-left">
                                     <label ng-show="{{message.priority}}" class=" m-0 p-0"><i class="fa fa-exclamation-circle text-danger"></i></label>
-                                <!-- </span>
-                                <span class="col-4 float-left"> -->
                                     <label ng-show="{{!message.priority}}" class="m-0 p-0"><i class="fa fa-info-circle text-primary"></i></label>
                                 </span>
                             </h6>
                             <span class="col-7 float-left posted">posted by: {{getUserName(message.userId)}}
                             on: {{message.createDate}}<br>
-                            <h5>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h5>
+                            <h6>Subject: {{message.subject}} ({{filtered.length}} comment/s)</h6>
                         </span>
                         <h4 class="col-1 text-center alight-center float-right"><i class="fas fa-arrow-up    "></i></h4>
                         <h4 class="col-1 text-center text-primary float-right" ng-show="messagesURL() && msgOwner(message)"

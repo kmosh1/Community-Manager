@@ -1,5 +1,7 @@
 CmuntyMngr.controller("issuesCtrl", function ($scope, issuesSrv, userSrv) {
 
+    $scope.activeUser = userSrv.getActiveUser();
+
       // load votes from json
 
       issuesSrv.getIssues().then(function (issues) {
@@ -13,7 +15,5 @@ CmuntyMngr.controller("issuesCtrl", function ($scope, issuesSrv, userSrv) {
         var tmpUser = userSrv.getUser(issue.createdBy);
         return currentUser.address == tmpUser.address ? true : false;
     }
-
-
 
 });

@@ -123,7 +123,7 @@
             "isCommittee": "Yes",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "1",
-            "image": "https://www.mie.ie/images/user-default.png"
+            "image": "/images/user-default.png"
         },
         {
             "id": 4,
@@ -135,7 +135,7 @@
             "isCommittee": "No",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "3",
-            "image": "https://www.mie.ie/images/user-default.png"
+            "image": "/images/user-default.png"
         } 
     ],
     "upForVotes": [

@@ -1,13 +1,8 @@
 <navbar-cmunty-mngr></navbar-cmunty-mngr>
 
-<h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-danger" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h1>
-<div class="col-8 text-center mx-auto">
-        <h6>
-            <label class="col-3"><i class="fas fa-envelope text-success"></i>New message</label>
-            <label class="col-5"><i class="fas fa-exclamation-circle text-danger"></i>Important message</label>
-            <label class="col-3"><i class="fas fa-info-circle text-info"></i>Info message</label>
-        </h6>
-        <a class="btn btn-warning round col-10" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg"> ADD A NEW MESSAGE<i class="fas fa-pen-alt"></i></a>
+<h1 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-warning" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h1>
+<div class="col-10 text-center mx-auto">
+        <a class="btn btn-warning round col-8" href="javascript:void(0)" data-toggle="modal" data-target="#new-msg"> ADD A NEW MESSAGE<i class="fas fa-pen-alt"></i></a>
     </div>
 
 <messages-view></messages-view>
@@ -35,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label class="container-checkbox">
-                            Priority Message?
+                            Important Message?
                             <input type="checkbox" checked="checked" ng-model="priority">
                             <span class="checkmark-box"></span>
                         </label>
@@ -73,7 +68,7 @@
                         </div>
                         <div class="form-group">
                             <label class="container-checkbox">
-                                Priority Message?
+                                    Important Message?
                                 <input type="checkbox" checked="checked" ng-model="editedMessage.priority">
                                 <span class="checkmark-box"></span>
                             </label>

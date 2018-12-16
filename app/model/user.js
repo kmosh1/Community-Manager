@@ -2,7 +2,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
 
     var users = [];
     var userLoaded = false;
-    var activeUser = null;
+    var activeUser = {};
     // new User( {
     //     "id": 1,
     //     "fname": "Nir",

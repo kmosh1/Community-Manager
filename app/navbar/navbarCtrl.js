@@ -1,11 +1,14 @@
-CmuntyMngr.controller('navbarCtrl', function ($scope, userSrv) {
+CmuntyMngr.controller('navbarCtrl', function ($rootScope, $scope, userSrv) {
 
+    $scope.activeUser = userSrv.getActiveUser();
     $scope.isUserCommittee = function () {
         return userSrv.isCommittee();
     }
 
-    var currentUser = userSrv.getActiveUser();
-    $scope.userName = currentUser.fname + " " + currentUser.lname;
-    $scope.communityAddr = currentUser.address;
+    if (!$rootScope.crntActvUser || $rootScope.crntActvUser != $scope.activeUser) {
+        $rootScope.crntActvUser = userSrv.getActiveUser();
+    }
+    $scope.userName = $rootScope.crntActvUser.fname + " " + $rootScope.crntActvUser.lname;
+    $scope.communityAddr = $rootScope.crntActvUser.address;
 
 })

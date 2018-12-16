@@ -1,5 +1,6 @@
 CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv, userSrv) {
 
+    $scope.activeUser = userSrv.getActiveUser();
     $scope.hasVoted = {};
     $scope.passedDueDate = {};
     $scope.dueDate2Days = {};
@@ -17,6 +18,15 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
         });
     });
 
+    $(function () {
+        $('#datetimepicker0').datetimepicker({
+            //  inline: true,
+            //  sideBySide: true,
+            date: new Date(),
+            format: 'DD/MM/YYYY HH:mm'
+
+        });
+    });
     // load votes from json
 
     upforvoteSrv.getUpForVotes().then(function (upforvotes) {
@@ -77,18 +87,17 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
     }
 
     $scope.checkDueDate = function (upforvote) {
-        var upForVoteDate = Date.parse(upforvote.dueDate);
-        var today = Date.parse(new Date());
-        var in2days = new Date();
-        in2days.setDate(in2days.getDate() + 2);
-        in2days = Date.parse(in2days);
+        moment.locale('he');
+        var today = moment();
+        var in2days = moment().add(2, 'days');
+        var upForVoteDate = moment(upforvote.dueDate, 'L LT');
         // DueDate more than 2 days
-        if (upForVoteDate > in2days) {
+        if (moment(upForVoteDate).isAfter(in2days)) {
             $scope.dueDate2Days[upforvote.id] = false;
             $scope.passedDueDate[upforvote.id] = false;
             return [false, false];
             // DueDate passed
-        } else if (upForVoteDate < today) {
+        } else if (moment(upForVoteDate).isBefore(today)) {
             $scope.dueDate2Days[upforvote.id] = false;
             $scope.passedDueDate[upforvote.id] = true;
             return [false, true];
@@ -103,9 +112,11 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
 
     $scope.addUpforvote = function () {
         //validate new vote data
-        console.log(JSON.stringify($('#datetimepicker1').datetimepicker('date')));
-        $scope.dueDate = $('#datetimepicker1').datetimepicker('date');
-        $scope.dueDate = moment($scope.dueDate).format('DD/MM/YYYY HH:mm');;
+        console.log(JSON.stringify($('#datetimepicker0').datetimepicker('date')));
+        // $scope.dueDate = $('#datetimepicker0').datetimepicker('date');
+        // $scope.dueDate = moment($scope.dueDate).format('DD/MM/YYYY HH:mm');
+        $scope.dueDate = moment($('#datetimepicker0').datetimepicker('date').format('L LT'));
+        $scope.dueDate = moment($scope.dueDate).format('L LT');
         if (!$scope.title || !$scope.details || !$scope.dueDate || !$scope.voteOptions) {
             alert("All form fields are mandatory!!");
         } else if ($scope.dueDate <= new Date()) {
@@ -132,8 +143,14 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
         $scope.editedDueDate = upforvote;
     }
 
-    $scope.editUFVDueDate = function () {
-        console.log($scope.editedDueDate);
+    $scope.newUFVDueDate = function () {
+        moment.locale('he');
+        $scope.newDueDate = moment($('#datetimepicker1').datetimepicker('date').format('L LT'));
+        $scope.newDueDate = moment($scope.newDueDate).format('L LT');
+        $scope.editedDueDate.dueDate = $scope.newDueDate;
+        $scope.checkDueDate ($scope.editedDueDate);
+        console.log("newUFVdate" + JSON.stringify($scope.editedDueDate));
+        $scope.editedMessage = {};
 
         // alert("Tenant edited and saved succcessfully");
         // document.getElementById("editTnntForm").reset();

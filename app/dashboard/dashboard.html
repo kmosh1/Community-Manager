@@ -4,11 +4,11 @@
 <div class="container-fluid">
     <div class="row dashboard border border-primary nobg">
         <div class="box col-md-6 border-right border-primary m-0 p-2">
-            <h2 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-danger" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h2>
+            <h2 class="w-100 text-center"><i class="fa fa-envelope-o"></i> Messages <span class="text-warning" ng-show="newMsgsCount()">({{newMsgsCount()}})</span></h2>
             <messages-view></messages-view>
         </div>
         <div class="box col-md-6 border-left border-primary m-0 p-2 float-right">
-            <h2 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote <span class="text-danger" ng-show="pendingVoteCount()">({{pendingVoteCount()}})</h2>
+            <h2 class="w-100 text-center"><i class="fas fa-vote-yea"></i> up-for-vote <span class="text-warning" ng-show="pendingVoteCount()">({{pendingVoteCount()}})</h2>
             <upforvote-view></upforvote-view>
         </div>
     </div>

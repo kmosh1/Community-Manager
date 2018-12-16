@@ -1,5 +1,6 @@
 CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, userSrv) {
 
+    $scope.activeUser = userSrv.getActiveUser();
     $scope.editedMessage = {};
     $scope.msgViewed = {};
 

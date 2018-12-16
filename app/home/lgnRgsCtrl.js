@@ -23,7 +23,6 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
         })
     }
 
-
     $scope.addUser = function (modalNum) {
 
         if (modalNum === 2) {
@@ -37,7 +36,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
         }
         if (formValidation(fullAddress, modalNum)) {
             userSrv.addUser($scope.fname, $scope.lname, $scope.email, $scope.pwd1, fullAddress, $scope.phone,
-                $scope.isCommittee, $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src : "https://www.mie.ie/images/user-default.png").then(function (user) {
+                $scope.isCommittee, $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src : "/images/user-default.png").then(function (user) {
                     if (modalNum === 1) {
                         alert("Registration successful!! congratulations! <br> Press OK to get into Community Manager");
                         document.getElementById("RegForm").reset();
@@ -129,6 +128,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
     }
 
     $scope.logout = function () {
+        $location.path("/");
         userSrv.logout();
     }
 
