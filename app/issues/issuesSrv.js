@@ -39,7 +39,7 @@ CmuntyMngr.factory("issuesSrv", function ($q, $http, userSrv) {
             async.resolve(issues);
         } else {
             issues = [];
-            var getIssuesURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/issues";
+            var getIssuesURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/issues";
             
             $http.get(getIssuesURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {

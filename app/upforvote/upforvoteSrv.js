@@ -41,7 +41,7 @@ CmuntyMngr.factory("upforvoteSrv", function ($q, $http, userSrv) {
             async.resolve(upForVotes);
         } else {
             upForVotes = [];
-            var getupForVotesURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/upForVotes";
+            var getupForVotesURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/upForVotes";
 
             $http.get(getupForVotesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -75,7 +75,7 @@ CmuntyMngr.factory("upforvoteSrv", function ($q, $http, userSrv) {
         });
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/upForVotes", newUpForVote).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/upForVotes", newUpForVote).then.....
 
         upForVotes.push(UpForVote);
         async.resolve(UpForVote);

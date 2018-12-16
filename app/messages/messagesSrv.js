@@ -33,7 +33,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
             async.resolve(messages);
         } else {
             messages = [];
-            var getMessagesURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/messages";
+            var getMessagesURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/messages";
 
             $http.get(getMessagesURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -64,7 +64,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         });
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/messages", newMessage).then.....
 
         messages.push(newMessage);
         async.resolve(newMessage);
@@ -81,7 +81,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
             async.resolve(comments);
         } else {
             comments = [];
-            var getCommentsURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/comments";
+            var getCommentsURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/comments";
 
             $http.get(getCommentsURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -113,7 +113,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         });
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
 
         comments.push(newComment);
         async.resolve(newComment);
@@ -134,7 +134,7 @@ CmuntyMngr.factory("messages", function ($q, $http, userSrv) {
         });
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/comments", newComment).then.....
 
         comments.push(newComment);
         async.resolve(newComment);

@@ -27,7 +27,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         var async = $q.defer();
 
         // if working with real server:
-        //         var loginURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/users?email=" +
+        //         var loginURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/users?email=" +
         //         email + "&pwd=" + pwd;
         //     $http.get(loginURL).then(function (response) {
         //         if (response.data.length > 0) {
@@ -65,7 +65,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
             async.resolve(users);
         } else {
             users = [];
-            var getUserssURL = "http://my-json-server.typicode.com/kmosh1/Community-Manager/users";
+            var getUserssURL = "https://my-json-server.typicode.com/kmosh1/Community-Manager/users";
 
             $http.get(getUserssURL).then(function (response) {
                 for (var i = 0; i < response.data.length; i++) {
@@ -101,7 +101,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         });
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", newUser).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/users", newUser).then.....
 
         users.push(newUser);
         activeUser = newUser;
@@ -116,7 +116,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         userIndex = users.indexOf(user);
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", findUser).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/users", findUser).then.....
         users[userIndex].fname = user.fname;
         users[userIndex].lname = user.lname;
         users[userIndex].email = user.email;
@@ -135,7 +135,7 @@ CmuntyMngr.factory("userSrv", function ($q, $http) {
         userIndex = users.indexOf(user);
 
         // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/kmosh1/Community-Manager/users", deleteUser).then.....
+        //$http.post("https://my-json-server.typicode.com/kmosh1/Community-Manager/users", deleteUser).then.....
 
 
 
