@@ -155,9 +155,9 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
         console.log("newUFVdate" + JSON.stringify($scope.editedDueDate));
         alert("new DueDate saved succcessfully");
         $('#new-dueDate').modal('hide');
-        $('#new-dueDate').on('hidden.bs.modal', function () {
-            $(this).find('form')[0].reset();
-        })
+        // $('#new-dueDate').on('hidden.bs.modal', function () {
+        //     $(this).find('form')[0].reset();
+        // })
         // document.getElementById("newDueDate").reset();
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
