@@ -10,5 +10,6 @@ CmuntyMngr.controller('navbarCtrl', function ($rootScope, $scope, userSrv) {
     }
     $scope.userName = $rootScope.crntActvUser.fname + " " + $rootScope.crntActvUser.lname;
     $scope.communityAddr = $rootScope.crntActvUser.address;
+    $scope.userImg = $rootScope.crntActvUser.image;
 
 })

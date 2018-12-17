@@ -1,23 +1,28 @@
 <nav class="navbar navbar-expand-md nobg">
     <!-- Brand -->
     <img class="navbar-brand opacity round" src="images/CommunityManager.png">
+
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class=" text-white"><i
-                class="fas fa-bars fa-1x"></i></span>
+        <span class=" text-white"><i class="fas fa-bars fa-1x"></i></span>
     </button>
     <!-- Navbar links -->
-    <a class="btn text-white" id="logout" href="#" ng-click="logout()"><span class="round opacity">{{userName}}</span><br> (Logout)</a>
+    <a class="btn text-white mr-3" id="logout" href="#" ng-click="logout()">
+        <span class="round opacity">{{userName}}</span>
+        <br> (Logout)</a>
+
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item ">
-                <a class="btn p-1 border-left text-white" href="#!/dashboard"><i class="fas fa-tachometer-alt"></i> dashboard</a>
+                <a class="btn p-1 border-left text-white" href="#!/dashboard"><i class="fas fa-tachometer-alt"></i>
+                    dashboard</a>
             </li>
             <li class="nav-item">
                 <a class="btn p-1 border-left text-white" href="#!/messages"><i class="fas fa-envelope"></i> messages</a>
             </li>
             <li class="nav-item">
-                <a class="btn p-1 border-left text-white" href="#!/upforvote"><i class="fas fa-vote-yea"></i> up-for-vote</a>
+                <a class="btn p-1 border-left text-white" href="#!/upforvote"><i class="fas fa-vote-yea"></i>
+                    up-for-vote</a>
             </li>
             <li class="nav-item">
                 <a class="btn p-1 border-left text-white" href="#!/issues"><i class="fas fa-bug"></i> issue tracking</a>
@@ -27,5 +32,6 @@
             </li>
         </ul>
     </div>
+    <img ng-src="{{userImg}}" class="label-icon round">
 </nav>
-<h6 class="w-100 text-center">COMMUNITY:  {{communityAddr}}</h6>
+<h6 class="w-100 text-center">COMMUNITY: {{communityAddr}} </h6>
