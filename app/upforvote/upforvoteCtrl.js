@@ -151,7 +151,7 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
         $scope.newDueDate = moment($('#datetimepicker1').datetimepicker('date').format('L LT'));
         $scope.newDueDate = moment($scope.newDueDate).format('L LT');
         $scope.editedDueDate.dueDate = $scope.newDueDate;
-        $scope.checkDueDate ($scope.editedDueDate);
+        // $scope.checkDueDate ($scope.editedDueDate);
         console.log("newUFVdate" + JSON.stringify($scope.editedDueDate));
         alert("new DueDate saved succcessfully");
         $('#new-dueDate').modal('hide');
