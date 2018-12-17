@@ -1,7 +1,7 @@
 <!-- <navbar-cmunty-mngr></navbar-cmunty-mngr> -->
 <div class="jumbotron jumbotron-fluid nobg">
     <div class="container opacity">
-        <h1 class="display-3 logo ">Community Manager <img class="col-3 float-right round" src="/images/CommunityManager.png"></h1>
+        <h1 class="display-3 logo ">Community Manager <img class="col-3 float-right round" src="images/CommunityManager.png"></h1>
         <p class="lead">Makes life in the community easier to manage</p>
         <hr class="my-2">
         <p>Community Manager will help you with all the related hassle of managing your community.
@@ -33,7 +33,7 @@
                     <form id="RegForm" class="text">
                         <div class="row m-2">
                             <div class="form-group col-5 px-2 m-0">
-                                <span><img class="label-icon round nobg" src="/images/user.gif"></span>
+                                <span><img class="label-icon round nobg" src="images/user.gif"></span>
                                 <label class="form-control-placeholder" for="fname"> First Name</label>
                                 <input type="name" class="form-control" required autocomplete="off" ng-model="fname">
                             </div>
@@ -50,7 +50,7 @@
 
                         <div class="row m-2">
                             <div class="form-group col-6 px-2 m-0">
-                                <span><img class="label-icon round nobg" src="/images/file.gif"></span>
+                                <span><img class="label-icon round nobg" src="images/file.gif"></span>
                                 <label class="form-control-placeholder" for="tnntImage"> Add picture?</label>
                                 <input type="file" name="myImage" image-with-preview ng-model="myImage" accept="image/jpeg,image/png">
                             </div>
@@ -60,12 +60,12 @@
                         </div>
                         <div class="row ml-2">
                             <div class="form-group col-5 px-2">
-                                <span><img class="label-icon round nobg" src="/images/email.gif"></span>
+                                <span><img class="label-icon round nobg" src="images/email.gif"></span>
                                 <label class="form-control-placeholder" for="email"> Email address</label>
                                 <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                             </div>
                             <div class="form-group col-5 px-2">
-                                <span><img class="label-icon round nobg" src="/images/phone.gif"></span>
+                                <span><img class="label-icon round nobg" src="images/phone.gif"></span>
                                 <label class="form-control-placeholder" for="phone"> Phone No# (opt)</label>
                                 <input type="phonenumber" class="form-control" required autocomplete="off" ng-model="phone">
                             </div>
@@ -81,12 +81,12 @@
                         </div>
                         <div class="row ml-2">
                             <div class="form-group px-2 col-5">
-                                <span><img class="label-icon roundnobg" src="/images/password1.gif"></span>
+                                <span><img class="label-icon roundnobg" src="images/password1.gif"></span>
                                 <label class="form-control-placeholder" for="password"> Password</label>
                                 <input type="password" class="form-control" required autocomplete="off" ng-model="pwd1">
                             </div>
                             <div class="form-group px-2 col-5">
-                                <span><img class="label-icon round nobg" src="/images/password.gif"></span>
+                                <span><img class="label-icon round nobg" src="images/password.gif"></span>
                                 <label class="form-control-placeholder" for="password"> Confirm Password</label>
                                 <input type="password" class="form-control" required autocomplete="off" ng-model="pwd2">
                             </div>
@@ -102,7 +102,7 @@
                             </a>
                         </div>
                         <div class="text-center col-10 mx-auto">
-                            <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="addUser(1)">REGISTER</button>
+                            <button type="button" class="btn-check-login w-100 bg-info" ng-click="addUser(1)">REGISTER</button>
                         </div>
                         <div class="text-center pt-3">
                             <a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-login"
@@ -115,7 +115,7 @@
     </div>
 
     <!-- The Login Modal -->
-    <div class="modal fade" data-backdrop="static" id="sem-login">
+    <div class="modal fade" id="sem-login">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <!-- Modal body -->
@@ -128,12 +128,12 @@
                     <br>
                     <form id="loginForm">
                         <div class="form-group">
-                            <span><img class="label-icon round nobg" src="/images/email.gif"></span>
+                            <span><img class="label-icon round nobg" src="images/email.gif"></span>
                             <label class="form-control-placeholder" for="email"> Email address</label>
                             <input type="email" class="form-control" required autocomplete="off" ng-model="email">
                         </div>
                         <div class="form-group">
-                            <span><img class="label-icon round nobg" src="/images/password.gif"></span>
+                            <span><img class="label-icon round nobg" src="images/password.gif"></span>
                             <label class="form-control-placeholder" for="password"> Password</label>
                             <input type="password" class="form-control" required autocomplete="off" ng-model="pwd">
                         </div>
@@ -145,7 +145,7 @@
                             </label>
                         </div>
                         <div class="text-center col-10 mx-auto">
-                            <button type="button" class="btn-check-login w-100 bg-info" data-dismiss="modal" ng-click="login()">LOGIN</button>
+                            <button type="button" class="btn-check-login w-100 bg-info" ng-click="login()">LOGIN</button>
                         </div>
                         <div class="text-center pt-3">
                             <a href="/reset_pass" class="text-secondary">Forgot Your Password?</a>

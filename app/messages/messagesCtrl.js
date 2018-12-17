@@ -26,8 +26,11 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
 
     $scope.editMessage = function () {
         alert("Message edited and saved succcessfully");
-        document.getElementById("editMsgForm").reset();
-        // $('#edit-msg').modal('hide');
+        $('#edit-msg').on('hidden.bs.modal', function () {
+            $(this).find('form')[0].reset();
+        })
+// document.getElementById("editMsgForm").reset();
+         $('#edit-msg').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         $scope.editedMessage = {};

@@ -1,6 +1,6 @@
 CmuntyMngr.directive("upforvoteView", function() {
     return {
-        templateUrl: "app/upforvote/upforvoteData.html",
+        templateUrl: "app/upforvote/upForVoteData.html",
         controller: "upforvoteCtrl"
     }
 })

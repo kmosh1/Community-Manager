@@ -99,7 +99,7 @@
             "isCommittee": "Yes",
             "address": "דבורה הנביאה 17 ,קרית טבעון",
             "appartment": "1",
-            "image": "/images/Penguins.jpg"
+            "image": "images/Penguins.jpg"
         },
         {
             "id": 2,
@@ -123,7 +123,7 @@
             "isCommittee": "Yes",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "1",
-            "image": "/images/user-default.png"
+            "image": "images/user-default.png"
         },
         {
             "id": 4,
@@ -135,7 +135,7 @@
             "isCommittee": "No",
             "address": "אינטרנציונל 46 ,חיפה",
             "appartment": "3",
-            "image": "/images/user-default.png"
+            "image": "images/user-default.png"
         } 
     ],
     "upForVotes": [

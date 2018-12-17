@@ -1,4 +1,5 @@
-CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, userSrv, messages, upforvoteSrv) {
+CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messages
+) {
 
     // $scope.email = "mk@mk.com";
     // $scope.pwd = "1234";
@@ -10,8 +11,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
 
         userSrv.login($scope.email, $scope.pwd).then(function (user) {
             // success login  sem-login
-            document.getElementById("loginForm").reset();
-            // $('#sem-login').modal('hide');
+            $('#sem-login').on('hidden.bs.modal', function () {
+                $(this).find('form')[0].reset();
+            })
+            // document.getElementById("loginForm").reset();
+            $("#sem-login").modal("hide");
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
             $scope.activeUser = user;
@@ -36,19 +40,25 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
         }
         if (formValidation(fullAddress, modalNum)) {
             userSrv.addUser($scope.fname, $scope.lname, $scope.email, $scope.pwd1, fullAddress, $scope.phone,
-                $scope.isCommittee, $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src : "/images/user-default.png").then(function (user) {
+                $scope.isCommittee, $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src : "images/user-default.png").then(function (user) {
                     if (modalNum === 1) {
                         alert("Registration successful!! congratulations! <br> Press OK to get into Community Manager");
-                        document.getElementById("RegForm").reset();
-                        // $('#sem-reg').modal('hide');
+                        $('#sem-reg').on('hidden.bs.modal', function () {
+                            $(this).find('form')[0].reset();
+                        })
+                        // document.getElementById("RegForm").reset();
+                        $('#sem-reg').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         $scope.invalidLogin = false;
                         $location.path("/tenants");
                     } else {
                         alert("Tenant was added successfully");
-                        document.getElementById("tnntForm").reset();
-                        // $('#new-tnnt').modal('hide');
+                        $('#new-tnnt').on('hidden.bs.modal', function () {
+                            $(this).find('form')[0].reset();
+                        })
+                        // document.getElementById("tnntForm").reset();
+                        $('#new-tnnt').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                     }
@@ -85,8 +95,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
             // userSrv.editUser($scope.editedUser, $scope.editedPwd1).then(function (success) {
             //         if (success) {
             alert("Tenant edited and saved succcessfully");
-            document.getElementById("editTnntForm").reset();
-            // $('#edit-tnnt').modal('hide');
+            $('#edit-tnnt').on('hidden.bs.modal', function () {
+                $(this).find('form')[0].reset();
+            })
+            // document.getElementById("editTnntForm").reset();
+            $('#edit-tnnt').modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
             $scope.editedUser = {};
@@ -130,6 +143,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
     $scope.logout = function () {
         $location.path("/");
         userSrv.logout();
+    }
+
+    $scope.hdieSelfDelete = function () {
+        CurrentUser = userSrv.getActiveUser();
+        return CurrentUser.id == user.id ? true : false;
     }
 
     function formValidation(fullAddress, modalNum) {
@@ -177,5 +195,6 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, issuesSrv, user
         }
         return true;
     }
+
 
 });
