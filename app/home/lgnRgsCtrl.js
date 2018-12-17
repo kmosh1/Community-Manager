@@ -11,11 +11,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
 
         userSrv.login($scope.email, $scope.pwd).then(function (user) {
             // success login  sem-login
+            $("#sem-login").modal("hide");
             $('#sem-login').on('hidden.bs.modal', function () {
                 $(this).find('form')[0].reset();
             })
             // document.getElementById("loginForm").reset();
-            $("#sem-login").modal("hide");
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
             $scope.activeUser = user;
@@ -43,11 +43,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
                 $scope.isCommittee, $scope.apprtmntgNum, $scope.myImage ? $scope.myImage.src : "images/user-default.png").then(function (user) {
                     if (modalNum === 1) {
                         alert("Registration successful!! congratulations! <br> Press OK to get into Community Manager");
+                        $('#sem-reg').modal('hide');
                         $('#sem-reg').on('hidden.bs.modal', function () {
                             $(this).find('form')[0].reset();
                         })
                         // document.getElementById("RegForm").reset();
-                        $('#sem-reg').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         $scope.invalidLogin = false;
@@ -95,11 +95,11 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
             // userSrv.editUser($scope.editedUser, $scope.editedPwd1).then(function (success) {
             //         if (success) {
             alert("Tenant edited and saved succcessfully");
+            $('#edit-tnnt').modal('hide');
             $('#edit-tnnt').on('hidden.bs.modal', function () {
                 $(this).find('form')[0].reset();
             })
             // document.getElementById("editTnntForm").reset();
-            $('#edit-tnnt').modal('hide');
             $('body').removeClass('modal-open');
             $('.modal-backdrop').remove();
             $scope.editedUser = {};
@@ -163,13 +163,6 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
             }
 
         } else {
-            if (!$scope.fname || !$scope.lname || !$scope.email | !$scope.pwd1
-                || !$scope.apprtmntgNum || !fullAddress || !$scope.isCommittee) {
-                // || !$scope.addrText || !$scope.buildingNum || !$scope.cityText || !$scope.apprtmntgNum) {
-                alert("first/last name, email, password, full address/appartment are mandatory fields");
-                return false;
-            }
-
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test($scope.email)) {
                 alert("Invalid Email...!!!!!!");
                 return false;
@@ -192,6 +185,14 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
                     return false;
                 };
             };
+ 
+            if (!$scope.fname || !$scope.lname || !$scope.email | !$scope.pwd1
+                || !$scope.apprtmntgNum || !fullAddress || !$scope.isCommittee) {
+                // || !$scope.addrText || !$scope.buildingNum || !$scope.cityText || !$scope.apprtmntgNum) {
+                alert("first/last name, email, password, full address/appartment are mandatory fields");
+                return false;
+            }
+
         }
         return true;
     }

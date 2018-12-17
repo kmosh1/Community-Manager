@@ -74,8 +74,9 @@ body::-webkit-scrollbar {
 }
 
 .label-icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 
   /* Accordion Block Start */

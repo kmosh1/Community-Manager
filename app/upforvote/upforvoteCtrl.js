@@ -126,11 +126,11 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
             var currentUser = userSrv.getActiveUser();
             upforvoteSrv.addUpForVote(currentUser.id, $scope.title, $scope.details, $scope.voteOptions, $scope.dueDate).then(function (upforvote) {
                 alert("UpForVote was added successfully");
+                $('#new-vote').modal('hide');
                 $('#new-vote').on('hidden.bs.modal', function(){
                     $(this).find('form')[0].reset();
                 });               
                 // document.getElementById("newVoteForm").reset();
-                $('#new-vote').modal('hide');
                 $('body').removeClass('modal-open');
                 $('.modal-backdrop').remove();
 
@@ -154,11 +154,11 @@ CmuntyMngr.controller("upforvoteCtrl", function ($scope, $location, upforvoteSrv
         $scope.checkDueDate ($scope.editedDueDate);
         console.log("newUFVdate" + JSON.stringify($scope.editedDueDate));
         alert("new DueDate saved succcessfully");
+        $('#new-vote').modal('hide');
         $('#new-vote').on('hidden.bs.modal', function () {
             $(this).find('form')[0].reset();
         })
         // document.getElementById("newDueDate").reset();
-        $('#new-vote').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         $scope.editedMessage = {};

@@ -17,8 +17,23 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
     })
 
     $scope.addMessage = function (subject, details, priority) {
-        messages.createMessage(subject, details, priority);
+
+        messages.createMessage(subject, details, priority).then(function (success) {
+            alert("Message added and saved succcessfully");
+            $('#new-msg').modal('hide');
+            $('#new-msg').on('hidden.bs.modal', function () {
+                $(this).find('form')[0].reset();
+            })
+    // document.getElementById("editMsgForm").reset();
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+    
+        }, function (error) {
+            // failed adding message
+            alert(error);
+        })
     }
+
 
     $scope.editMsg = function (message) {
         $scope.editedMessage = message;
@@ -26,11 +41,11 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
 
     $scope.editMessage = function () {
         alert("Message edited and saved succcessfully");
+        $('#edit-msg').modal('hide');
         $('#edit-msg').on('hidden.bs.modal', function () {
             $(this).find('form')[0].reset();
         })
 // document.getElementById("editMsgForm").reset();
-         $('#edit-msg').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         $scope.editedMessage = {};
@@ -71,11 +86,13 @@ CmuntyMngr.controller("messagesCtrl", function ($scope, $location, messages, use
         }
     }
 
-    $scope.getUserName = function (userId) {
+    $scope.getUserDetails = function (userId) {
         var tmpUser = userSrv.getUser(userId);
-        return tmpUser.fname + " " + tmpUser.lname;
+        var fullName = tmpUser.fname + " " + tmpUser.lname;
+        var userImg = tmpUser.image;
+        return [fullName, userImg];
     }
-
+ 
     $scope.filterMessages = function (message) {
         var currentUser = userSrv.getActiveUser();
         var tmpUser = userSrv.getUser(message.userId);

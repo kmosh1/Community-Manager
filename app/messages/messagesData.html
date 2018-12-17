@@ -23,9 +23,12 @@
                                     <label ng-show="{{!message.priority}}" class="m-0 p-0"><i class="fas fa-info-circle text-primary"></i></label>
                                 </span>
                             </h6>
-                            <span class="col-7 float-left posted">posted by: {{getUserName(message.userId)}}
-                            on: {{message.createDate}}<br>
+                            <span class="col-7 float-left posted">
+                                    <img ng-src="{{getUserDetails(message.userId)[1]}}" class="label-icon round float-left">
+                                    posted by: {{getUserDetails(message.userId)[0]}}
+                            on: {{message.createDate}} <br>
                             <h6> {{message.subject}} ({{filtered.length}} comment/s)</h6>
+                            
                         </span>
                         <h5 class="col-1 text-center float-right"><i class="fas fa-arrow-up    "></i></h5>
                         <h4 class="col-1 text-center text-primary float-right" ng-show="messagesURL() && msgOwner(message)"
@@ -36,11 +39,14 @@
                 </div>
                 <div id="messageCollapse{{message.id}}" class="collapse col-11 mx-auto" data-parent="#msgAccordion">
                     <div class="card-block mt-2">
-                        <p> {{message.details}}</p>
+                            
+                        <p>{{message.details}}</p>
                         <h6>Comments:</h6>
                         <div class="row mx-auto round border-primary" ng-repeat="comment in comments | filter: {messageId:message.id} as filtered">
-                            <span class="col-9 float-left posted text-center">posted by:
-                                {{getUserName(comment.userId)}} on: {{comment.createDate}}<br>
+                                <img ng-src="{{getUserDetails(comment.userId)[1]}}" class="label-icon ml-3 round">
+                                    <span class="col-8 float-left posted text-center">
+                                                                    posted by:
+                                    {{getUserDetails(comment.userId)[0]}} on: {{comment.createDate}}<br>
                                 <h6>{{comment.details}}</h6>
                             </span>
                             <h3 class="col-2 text-center text-danger mt-2 float-right" ng-show="messagesURL() && cmntOwner(comment)"
