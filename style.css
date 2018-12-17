@@ -32,8 +32,16 @@ body {
 
 #logout {
     position: absolute; 
-    right: 10px; 
+    right: 40px; 
     top: 0px;
+}
+
+#usrImg {
+    position: absolute; 
+    right: 10px; 
+    top: 10px;
+    width: 40px;
+    height: 40px;
 }
 
 .modal-content {

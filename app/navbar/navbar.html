@@ -7,9 +7,11 @@
         <span class=" text-white"><i class="fas fa-bars fa-1x"></i></span>
     </button>
     <!-- Navbar links -->
-    <a class="btn text-white mr-3" id="logout" href="#" ng-click="logout()">
-        <span class="round opacity">{{userName}}</span>
+    <a class="btn text-white" id="logout" href="#" ng-click="logout()">
+        <h6 class="round opacity">{{userName}}</h6>
         <br> (Logout)</a>
+    <img ng-src="{{userImg}}" class="rounded-circle" id="usrImg">
+    
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
@@ -32,6 +34,6 @@
             </li>
         </ul>
     </div>
-    <img ng-src="{{userImg}}" class="label-icon round">
+
 </nav>
 <h6 class="w-100 text-center">COMMUNITY: {{communityAddr}} </h6>
