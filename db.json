@@ -147,7 +147,7 @@
             "details": "There is a need to repaint our building entrance.\n We got an offer for 5,000 Shekels, and it will take 3 days work.\n We have 3000 Shekels budget, so each appartment will have to add 400 Shekels.\n Please place your votes Yes/No.",
             "options": [{ "id": 1, "vote": "Yes"}, { "id": 2, "vote": "No"}],
             "dueDate": "10/11/2018 20:00",
-            "votes": ["yes"],
+            "votes": ["Yes"],
             "voted": ["apartment1"]
         },
         {
@@ -158,7 +158,7 @@
             "details": "Per request from Tali, putting up for vote on replacing the building entrance door.\n cost: 3000-4000 Shekel.\n Please place your votes Yes/No.",
             "options": [{ "id": 1, "vote": "Yes"}, { "id": 2, "vote": "No"}],
             "dueDate": "21/12/2018 20:00",
-            "votes": ["yes"],
+            "votes": ["Yes"],
             "voted": ["apartment3"]
         }
     ],
