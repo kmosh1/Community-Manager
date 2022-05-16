@@ -2,6 +2,7 @@ CmuntyMngr.controller("lgnRgsCtrl", function ($scope, $location, userSrv, messag
 ) {
 
     // $scope.email = "mk@mk.com";
+    // $scope.pwd = "1234";
     $scope.invalidLogin = false;
     $scope.editedUser = {};
     $scope.activeUser = {};
