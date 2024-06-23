@@ -1,1 +1,1 @@
-test text 23.6.24
+test text 23.6.24 CxOne integration
